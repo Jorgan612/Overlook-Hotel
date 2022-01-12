@@ -5,40 +5,33 @@
 
 
 body {
+  @include fontSize(40px);
   min-height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 10px;
   color: #fff;
   font-family: 'Six Caps', sans-serif;
-  font-size: 40px;
+
 }
 
 button {
   cursor: pointer;
   font-family: 'Six Caps', sans-serif;
+  border: 2px solid #5b5b5b;
 }
 
 .main-login-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // background-color: #4b3621;
-  // color: 000000;
+  @include flexbox(none, center, center);
   height: 100vh;
   width: 100%;
 }
 
 .login-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  // background-color: #FFFAFA;
-  // background-color: #eeeeee;
+  @include flexbox(column, center, center);
+  @include fontSize(30px);
   background-color: #191919;
   border-radius: 5px;
-  font-size: 30px;
   height: 70%;
   width: 40%;
   padding: 10px;
@@ -46,7 +39,7 @@ button {
 }
 
 .form-element-label {
-  font-size: 40px;
+  @include fontSize(40px);
 }
 
 .form-input {
@@ -56,119 +49,102 @@ button {
   margin: 20px;
 }
 .login-button {
+  @include fontSize(60px);
   margin-top: 30px;
   height: 15%;
   width: 40%;
-  font-size: 60px;
   border: 3px solid #5b5b5b;
   box-shadow: 0px 2px 2px #3A231B;
-  font-family: 'Six Caps', sans-serif;
+  // font-family: 'Six Caps', sans-serif;
 }
 
 // DASHBOARD
 
 
 .user-dashboard-section {
-  display: flex;
+  @include flexbox(none, none, none);
   flex-wrap: wrap;
   height: 100vh;
   width: 100%;
 }
 
 .dashboard-header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  @include flexbox(none, flex-end, center);
   color: #fff;
   height: 20%;
   width: 100%;
 }
 
 .hotel-name {
-    display: flex;
-    justify-content: center;
+  @include flexbox(none, center, none);
+  @include fontSize(125px);
     width: 80%;
     margin-left: 10%;
-    font-size: 125px;
     color: #fff;
 }
 
 .user-greeting-and-logout {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
+  @include flexbox(column, space-between, flex-end);
+  @include fontSize(25px);
   height: 100%;
   width: 20%;
-  font-size: 25px;
-
-
 }
 
 .greeting-msg {
+  @include fontSize(40px);
   margin-right: 20px;
-  font-size: 40px;
 }
 
 .nav-logout-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexbox(none, center, center);
+  @include fontSize(40px);
   width: 35%;
   height: 40%;
   margin-right: 10px;
   margin-bottom: 10px;
   // background-color: #3A231B;
-  font-family: 'Six Caps', sans-serif;
-  border: 2px solid #5b5b5b;
+  // font-family: 'Six Caps', sans-serif;
+  // border: 2px solid #5b5b5b;
   border-radius: 5px;
-  box-shadow: 0px 3px 5px #000000;
-  font-size: 40px;
+  // box-shadow: 0px 3px 5px #000000;
+
   // color: #fff;
 }
 
 .left-booking-section {
-  display: flex;
-  flex-direction: column;
-  // justify-content: center;
-  align-items: center;
+  @include flexbox(column, none, center);
   border: 2px solid green;
   height: 80%;
   width: 30%;
 }
 
 .book-a-room-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexbox(none, center, center);
+  @include fontSize(50px);
   margin-top: 20px;
   height: 10%;
   width: 70%;
-  font-size: 50px;
   color: #000000;
   border-radius: 5px;
   border: 2px solid #5b5b5b;
   box-shadow: 0px 3px 5px #000000;
-  font-family: 'Six Caps', sans-serif;
+  // font-family: 'Six Caps', sans-serif;
   // background-color: #B0A7A3;
 }
 
 //THIS MIGHT TURN INTO RADIO BUTTONS?
 //TO DISPLAY AVAILABLE ROOMS?
 .select-date-section {
-  display: flex;
-  // flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+  @include flexbox(none, space-around, center);
+  @include fontSize(25px);
   // border: 2px solid yellow;
   height: 20%;
   width: 90%;
   margin-top: 15px;
-  font-size: 25px;
 }
 
 .select-date-label {
-  font-size: 40px;
+  @include fontSize(40px);
 }
 
 .available-rooms-input {
@@ -177,48 +153,39 @@ button {
 }
 
 .available-rooms-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flexbox(column, center, center);
   border: 2px solid pink;
   height: 60%;
   width: 80%;
-  padding: 5px;
+  padding-top: 70px;
   overflow-y: auto;
 }
 
 .available-room-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flexbox(column, none, center);
   border: 2px solid white;
   width: 90%;
   margin: 5px;
 }
 
 .select-available-room-button {
+  @include fontSize(40px);
   height: 10%;
   width: 50%;
-  font-size: 40px;
   margin-top: 10px;
   margin-bottom: 10px;
   box-shadow: 0px 2px 2px #3A231B;
 }
 
 .right-user-booking-log-section {
-  display: flex;
-  justify-content: center;
+  @include flexbox(none, center, none);
   color: #fff;
   height: 80%;
   width: 69%;
 }
 
 .customer-bookings-div {
-  display: flex;
-  flex-direction: column;
-  // justify-content: center;
-  align-items: center;
+  @include flexbox(column, none, center);
   background-color: #bcbcbc;
   opacity: .9;
   color: #000000;
@@ -230,8 +197,7 @@ button {
 }
 
 .display-customer-bookings-div {
-  display: flex;
-  justify-content: center;
+  @include flexbox(none, center, none);
   flex-wrap: wrap;
   height:93%;
   width: 97%;
@@ -240,15 +206,12 @@ button {
 }
 
 .user-booking-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flexbox(column, center, center);
+  // @include fontSize(40px);
   height: 35%;
   width: 20%;
   margin: 10px;
   border: 2px solid blue;
-  font-size: 40px;
 }
 
 .hidden {
