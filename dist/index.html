@@ -13,18 +13,21 @@
   <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
   <!-- <img src="./images/overlook-carpet-top-down.png" alt="creepy pattern"> -->
   <section class="main-login-section hidden">
-    <form class="login-form">
-      <label class="form-element-label">Username:</label>
-      <input class="form-input">
-      <label class="form-element-label">Password:</label>
-      <input class="form-input">
-      <button class="login-button form-elements">Login</button>
-    </form>
+    <h1 class="overlook-login-page-welcome-msg">The Overlook welcomes you . . .</h1>
+    <div class="login-page-bg-div">
+      <form class="login-form">
+        <label class="form-element-label" for="user">Username :</label>
+        <input class="form-input" type="text" id="user" name="user">
+        <label class="form-element-label" for="password">Password :</label>
+        <input class="form-input" id="password" name="password">
+        <button class="login-button form-elements">Login</button>
+      </form>
+    </div>
   </section>
   <section class="user-dashboard-section">
     <header class="dashboard-header">
-      <div class="hotel-name">
-        <h1>The Overlook Hotel</h1>
+      <div class="hotel-name-div">
+        <h1 class="hotel-name">The Overlook Hotel</h1>
       </div>
       <div class="user-greeting-and-logout">
         <h3 class="greeting-msg">Hello, <span>Jessica</span>!</h3>
@@ -37,41 +40,26 @@
         <label class="select-date-label">Select a Date:</label>
         <input class="available-rooms-input" type="date">
       </section>
-        <div class="available-rooms-div">
-          <!-- <article> -->
-            <!-- AVAILABLE ROOMS GO HERE!  -->
-          <!-- </article> -->
-          <article class="available-room-card">
-            <p>TEST INFO</P>
-            <p>TEST INFO</P>
-            <p>TEST INFO</P>
-          </article>
-          <article class="available-room-card">
-            <p>TEST INFO</P>
-            <p>TEST INFO</P>
-            <p>TEST INFO</P>
-          </article>
-          <article class="available-room-card">
-            <p>TEST INFO</P>
-            <p>TEST INFO</P>
-            <p>TEST INFO</P>
-          </article>
-          <article class="available-room-card">
-            <p>TEST INFO</P>
-            <p>TEST INFO</P>
-            <p>TEST INFO</P>
-          </article>
-          <article class="available-room-card">
-            <p>TEST INFO</P>
-            <p>TEST INFO</P>
-            <p>TEST INFO</P>
-          </article>
-        </div>
-        <button class="select-available-room-button">Select Room</button>
+      <div class="available-rooms-div">
+        <!-- <article> -->
+          <!-- AVAILABLE ROOMS GO HERE!  -->
+        <!-- </article> -->
+        <article class="available-room-card">
+          <p>TEST INFO</P>
+          <p>TEST INFO</P>
+          <p>TEST INFO</P>
+        </article>
+        <article class="available-room-card">
+          <p>TEST INFO</P>
+          <p>TEST INFO</P>
+          <p>TEST INFO</P>
+        </article>
+      </div>
+      <button class="select-available-room-button">Select Room</button>
     </section>
     <section class="right-user-booking-log-section">
       <div class="customer-bookings-div">
-        <h2>Customer Bookings</h2>
+        <h2 class="customer-bookings-header">Customer Bookings</h2>
         <div class="display-customer-bookings-div">
           <!-- DOM display of customer bookings here!! -->
           <article class="user-booking-card">
@@ -133,7 +121,8 @@
             <p>TEST INFO</P>
             <p>TEST INFO</P>
             <p>TEST INFO</P>
-          </article><article class="user-booking-card">
+          </article>
+          <article class="user-booking-card">
             <p>TEST INFO</P>
             <p>TEST INFO</P>
             <p>TEST INFO</P>
