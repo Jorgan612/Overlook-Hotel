@@ -138,6 +138,9 @@ button {
 }
 
 .book-a-room-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 20px;
   height: 10%;
   width: 70%;
@@ -200,6 +203,7 @@ button {
   font-size: 40px;
   margin-top: 10px;
   margin-bottom: 10px;
+  box-shadow: 0px 2px 2px #3A231B;
 }
 
 .right-user-booking-log-section {
