@@ -1,6 +1,18 @@
 /* This is an example of how to import a partial scss file*/
 @import '_variables';
+@import '_mixins.scss';
+@import '_reset.scss';
+
 
 body {
-  background: $primary-background;
+  // display: block;
+  min-height: 100vh;
+  // background-image: url(./images/overlook-carpet-top-down.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 5px;
+  color: #fff;
+  font-family: 'Mea Culpa', cursive;
+  font-family: 'Six Caps', sans-serif;
+  font-size: 40px;
 }
