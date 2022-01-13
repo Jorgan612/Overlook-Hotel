@@ -4,13 +4,76 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Six+Caps&display=swap" rel="stylesheet">
+  <title>Overlook Hotel</title>
 </head>
-<body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
+<body style="background-image: url(./images/overlook-carpet-top-down.png);" alt="murder rug">
+  <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
+  <!-- <img src="./images/overlook-carpet-top-down.png" alt="creepy pattern"> -->
+  <section class="main-login-section hidden">
+    <h1 class="overlook-login-page-welcome-msg">The Overlook welcomes you . . .</h1>
+    <div class="login-page-bg-div">
+      <form class="login-form">
+        <label class="form-element-label" for="user">Username :</label>
+        <input class="form-input" type="text" id="user" name="user">
+        <label class="form-element-label" for="password">Password :</label>
+        <input class="form-input" id="password" name="password">
+        <button class="login-button form-elements">Login</button>
+      </form>
+    </div>
+  </section>
+  <section class="user-dashboard-section">
+    <header class="dashboard-header">
+      <div class="hotel-name-div">
+        <h1 class="hotel-name">The Overlook Hotel</h1>
+      </div>
+      <div class="user-greeting-and-logout">
+        <h3 class="greeting-msg">Hello, <span>Jessica</span>!</h3>
+        <button class="nav-logout-button">Logout</button>
+      </div>
+    </header>
+    <section class="left-booking-section">
+      <button class="book-a-room-button">Book a Room</button>
+      <section class="select-date-section">
+        <label class="select-date-label" for="date">Select a Date:</label>
+        <input class="available-rooms-input" type="date" id="date" name="date">
+      </section>
+      <div class="available-rooms-div">
+          <!-- AVAILABLE ROOMS GO HERE!  -->
+        <article class="available-room-card">
+          <p>$160</P>
+          <p>Suite</P>
+          <p>1 queen bed</P>
+        </article>
+        <article class="available-room-card">
+          <p>$200</P>
+          <p>Single</P>
+          <p>1 full bed</P>
+        </article>
+      </div>
+      <button class="select-available-room-button">Select Room</button>
+    </section>
+    <section class="right-user-booking-log-section">
+      <div class="customer-bookings-div">
+        <h2 class="customer-bookings-header">Customer Bookings</h2>
+        <div class="display-customer-bookings-div">
+          <!-- DOM display of customer bookings here!! -->
+          <article class="user-booking-card">
+            <p>$80</P>
+            <p>Single</P>
+            <p>1 full bed</P>
+          </article>
+          <article class="user-booking-card">
+            <p>$100</P>
+            <p>Suite</P>
+            <p>1 king bed</P>
+          </article>
+        </div>
+      </div>
+    </section>
+  </section>
   <script src="bundle.js"></script>
-
 </body>
 </html>

@@ -1,6 +1,222 @@
-/* This is an example of how to import a partial scss file*/
 @import '_variables';
+@import '_mixins.scss';
+@import '_reset.scss';
+
 
 body {
-  background: $primary-background;
+  @include fontSize(40px);
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 10px;
+  color: #fff;
+  font-family: 'Six Caps', sans-serif;
+
+}
+
+button {
+  @include flexbox(none, center, center);
+  cursor: pointer;
+  font-family: 'Six Caps', sans-serif;
+  border: 2px solid #5b5b5b;
+  box-shadow: $box-shadow;
+}
+
+.main-login-section {
+  @include flexbox(column, center, center);
+  @include heightAndWidth(100vh, 100%);
+}
+
+.overlook-login-page-welcome-msg {
+  font-size: 90px;
+  margin-bottom: 30px;
+}
+
+.login-page-bg-div {
+  @include flexbox(column, center, center);
+  @include heightAndWidth(70%, 40%);
+  background-color: #660000;
+  opacity: .9;
+}
+
+.login-form {
+  @include flexbox(column, center, center);
+  @include heightAndWidth(100%, 100%);
+  @include fontSize(30px);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.form-element-label {
+  @include fontSize(40px);
+}
+
+.form-input {
+  @include heightAndWidth(10%, 40%);
+  border: 2px solid #321414;
+  margin: 20px;
+}
+.login-button {
+  @include heightAndWidth(15%, 40%);
+  @include fontSize(60px);
+  margin-top: 30px;
+  border: 3px solid #5b5b5b;
+  box-shadow: $box-shadow;
+}
+
+// DASHBOARD
+
+.user-dashboard-section {
+  @include flexbox(none, none, none);
+  @include heightAndWidth(100vh, 100%);
+  flex-wrap: wrap;
+}
+
+.dashboard-header {
+  @include flexbox(none, flex-end, none);
+  @include heightAndWidth(20%, 100%);
+  color: #fff;
+}
+
+.hotel-name-div {
+  @include heightAndWidth(100%, 100%)
+}
+
+.hotel-name {
+  @include flexbox(none, center, none);
+  @include heightAndWidth(100%, 99%);
+  @include fontSize(150px);
+    margin: 0;
+    margin-left: 100px;
+    color: #fff;
+}
+
+.user-greeting-and-logout {
+  @include flexbox(column, space-between, flex-end);
+  @include heightAndWidth(100%, 20%);
+  @include fontSize(25px);
+}
+
+.greeting-msg {
+  @include fontSize(40px);
+  margin-right: 20px;
+}
+
+.nav-logout-button {
+  @include heightAndWidth(35%, 45%);
+  @include fontSize(40px);
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: $box-shadow;
+}
+
+.left-booking-section {
+  @include flexbox(column, none, center);
+  @include heightAndWidth(79%, 30%);
+  background-color: #660000;
+  margin-top: 20px;
+  opacity: .9;
+}
+
+.book-a-room-button {
+  @include heightAndWidth(10%, 70%);
+  @include fontSize(50px);
+  margin-top: 20px;
+  color: #000000;
+  border-radius: 5px;
+  border: 2px solid #5b5b5b;
+  box-shadow: $box-shadow;
+}
+
+//THIS MIGHT TURN INTO RADIO BUTTONS?
+//TO DISPLAY AVAILABLE ROOMS?
+.select-date-section {
+  @include flexbox(none, space-around, center);
+  @include heightAndWidth(20%, 90%);
+  @include fontSize(25px);
+  margin-top: 15px;
+}
+
+.select-date-label {
+  @include flexbox(none, center, center);
+  @include fontSize(40px);
+  @include heightAndWidth(52%, 30%);
+  background-color:  #f3f3f3;
+  color: #000000;
+}
+
+.available-rooms-input {
+  @include heightAndWidth(52%, 70%);
+  @include fontSize(30px);
+  font-family: 'Six Caps', sans-serif;
+  background-color: #f3f3f3;
+  border: none;
+}
+
+.available-rooms-div {
+  @include flexbox(column, center, center);
+  @include heightAndWidth(60%, 80%);
+  @include fontSize(30px);
+  background-color: #f3f3f3;
+  overflow-y: auto;
+}
+
+.available-room-card {
+  @include flexbox(column, none, center);
+  @include heightAndWidth(none, 90%);
+  background-color: #990000;
+  box-shadow: $box-shadow;
+  padding: 5px;
+  margin: 5px;
+}
+
+.select-available-room-button {
+  @include heightAndWidth(10%, 50%);
+  @include fontSize(40px);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: $box-shadow;
+}
+
+.right-user-booking-log-section {
+  @include flexbox(none, center, none);
+  @include heightAndWidth(85%, 69%);
+  margin-left: 14px;
+  color: #fff;
+}
+
+.customer-bookings-div {
+  @include flexbox(column, none, center);
+  @include heightAndWidth(93%, 97%);
+  background-color:  #f3f3f3;
+  opacity: .9;
+  color: #000000;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.customer-bookings-header {
+  @include fontSize(40px);
+  margin: 10px;
+}
+
+.display-customer-bookings-div {
+  @include flexbox(none, center, none);
+  @include heightAndWidth(93%, 97%);
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
+.user-booking-card {
+  @include flexbox(column, center, center);
+  @include heightAndWidth(35%, 45%);
+  background-color: #990000;
+  color: #fff;
+  margin: 10px;
+  box-shadow: $box-shadow;
+}
+
+.hidden {
+  display: none;
 }
