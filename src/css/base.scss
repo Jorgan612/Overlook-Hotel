@@ -157,8 +157,8 @@ button {
 .available-rooms-div {
   @include flexbox(column, center, center);
   @include heightAndWidth(60%, 80%);
-  background-color:  #f3f3f3;
-  padding-top: 100px;
+  @include fontSize(30px);
+  background-color: #f3f3f3;
   overflow-y: auto;
 }
 
@@ -211,7 +211,6 @@ button {
 .user-booking-card {
   @include flexbox(column, center, center);
   @include heightAndWidth(35%, 45%);
-  // @include fontSize(40px);
   background-color: #990000;
   color: #fff;
   margin: 10px;
