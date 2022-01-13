@@ -41,7 +41,7 @@ describe('Customer', function() {
   });
 
   it('It should have a list of bookings', function () {
-    console.log(customer.bookings)
+    // console.log(customer.bookings)
     expect(customer.bookings).to.be.an('array');
   });
 
