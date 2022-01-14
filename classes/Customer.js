@@ -1,35 +1,40 @@
 class Customer {
-  constructor(customersData, bookings) {
+  constructor(customersData) {
     this.id = customersData.id;
     this.name = customersData.name;
-    this.bookings = bookings;
-    this.currentCustomerBookings;
-    this.totalBookingCost;
+    // this.bookings = bookings;
+    // this.currentCustomerBookings;
+    // this.totalBookingCost;
 // bookings currently has ALL of the customers in test datas bookings
   }
 
-getCurrentCustomerBookings(customer) {
-  const currentCustomerBookings = this.bookings.filter((booking) => {
-    if (this.id === booking.userID) {
-      return booking;
-    }
-  }).sort((a, b) => {
-    if (a.date < b.date) {
-      return - 1;
-    }
-    if (a.date > b.date) {
-      return 1;
-    }
-    else {
-      return 0;
-    }
-  })
-    this.currentCustomerBookings = currentCustomerBookings;
-    return currentCustomerBookings;
-  }
+// getCurrentCustomerBookings(customerInfo) {
+//   const currentCustomerBookings = customerInfo.bookings.filter((booking) => {
+//     if (this.id === booking.userID) {
+//       return booking;
+//     }
+//   }).sort((a, b) => {
+//     if (a.date < b.date) {
+//       return - 1;
+//     }
+//     if (a.date > b.date) {
+//       return 1;
+//     }
+//     else {
+//       return 0;
+//     }
+//   })
+//     this.currentCustomerBookings = currentCustomerBookings;
+//     return currentCustomerBookings;
+//   }
 
-calculateTotalCostOfAllCustomerBookings() {
-
+calculateTotalCostOfAllCustomerBookings(customer) {
+  console.log(this.currentCustomerBookings)
+  const totalBookingCost = this.currentCustomerBookings.reduce((acc, booking) => {
+    // acc += booking.
+    return acc;
+  }, 0);
+  this.totalBookingCost = totalBookingCost;
 }
 
 getFirstName() {

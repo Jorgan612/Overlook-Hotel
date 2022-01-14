@@ -1,15 +1,18 @@
 import { expect } from 'chai';
 import Customer from '../classes/Customer.js';
+import Hotel from '../classes/Hotel.js';
 import { customersData, bookingsData, roomsData } from './test-dataSets';
 
 describe('Customer', function() {
 
   let customer;
   let customer2;
+  let hotel;
 
   beforeEach(() => {
-    customer = new Customer(customersData[0], bookingsData);
-    customer2 = new Customer(customersData[1], bookingsData);
+    customer = new Customer(customersData[0]);
+    customer2 = new Customer(customersData[1]);
+    hotel = new Hotel(roomsData, bookingsData);
 
   });
 
@@ -40,27 +43,28 @@ describe('Customer', function() {
     expect(customer.getFirstName()).to.equal('Leatha');
   });
 
-  it('It should have a list of bookings', function () {
-    // console.log(customer.bookings)
-    expect(customer.bookings).to.be.an('array');
-  });
-
-  it('It should have a current customers booking list', function () {
-    customer.getCurrentCustomerBookings(customer);
-    expect(customer.currentCustomerBookings).to.be.an('array');
-  });
-
-  it('It should have bookings organized chronologically', function () {
-    customer.getCurrentCustomerBookings(customer);
-    expect(customer.currentCustomerBookings).to.deep.equal([
-      {id: '5fwrgu4i7k55hl6t7', userID: 1, date: '2022/01/14', roomNumber: 3, roomServiceCharges: []},
-      {id: '5fwrgu4i7k55h16t6', userID: 1, date: '2022/01/15', roomNumber: 2, roomServiceCharges: []}
-    ]);
-  });
-
-  it('It should calculate the total cost of all customer bookings', function () {
-    customer.calculateTotalCostOfAllCustomerBookings(customer);
-    expect()
-  })
+  // it('It should have a list of bookings', function () {
+  //   // console.log(customer.bookings)
+  //   expect(customer.bookings).to.be.an('array');
+  // });
+  //
+  // it('It should have a current customers booking list', function () {
+  //   customer.getCurrentCustomerBookings(customer);
+  //   expect(customer.currentCustomerBookings).to.be.an('array');
+  // });
+  //
+  // it('It should have bookings organized chronologically', function () {
+  //   customer.getCurrentCustomerBookings(customer);
+  //   expect(customer.currentCustomerBookings).to.deep.equal([
+  //     {id: '5fwrgu4i7k55hl6t7', userID: 1, date: '2022/01/14', roomNumber: 3, roomServiceCharges: []},
+  //     {id: '5fwrgu4i7k55h16t6', userID: 1, date: '2022/01/15', roomNumber: 2, roomServiceCharges: []}
+  //   ]);
+  // });
+  //
+  // it('It should calculate the total cost of all customer bookings', function () {
+  //   customer.getCurrentCustomerBookings(customer);
+  //   customer.calculateTotalCostOfAllCustomerBookings(customer);
+  //   expect(customer.totalBookingCost).to.equal(968.52)
+  // })
 
 });
