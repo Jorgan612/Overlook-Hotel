@@ -3,18 +3,38 @@ class Customer {
     this.id = customersData.id;
     this.name = customersData.name;
     this.bookings = bookings;
-    this.currentCustomer;
+    this.currentCustomerBookings;
+    this.totalBookingCost;
 // bookings currently has ALL of the customers in test datas bookings
   }
 
-getCurrentCustomerBookings() {
+getCurrentCustomerBookings(customer) {
+  const currentCustomerBookings = this.bookings.filter((booking) => {
+    if (this.id === booking.userID) {
+      return booking;
+    }
+  }).sort((a, b) => {
+    if (a.date < b.date) {
+      return - 1;
+    }
+    if (a.date > b.date) {
+      return 1;
+    }
+    else {
+      return 0;
+    }
+  })
+    this.currentCustomerBookings = currentCustomerBookings;
+    return currentCustomerBookings;
+  }
 
+calculateTotalCostOfAllCustomerBookings() {
+  
 }
-
 getFirstName() {
   // do you need to figure out a way to match customer
   // id's to determine correct customer name?
-  // customersData on line 13 is undefined.
+  // customersData in below iterator is undefined.
 
   // const firstName = customersData.find((customer) => {
   //   if (customer.id === id) {
