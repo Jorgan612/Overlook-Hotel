@@ -29,19 +29,10 @@ getCurrentCustomerBookings(customer) {
   }
 
 calculateTotalCostOfAllCustomerBookings() {
-  
-}
-getFirstName() {
-  // do you need to figure out a way to match customer
-  // id's to determine correct customer name?
-  // customersData in below iterator is undefined.
 
-  // const firstName = customersData.find((customer) => {
-  //   if (customer.id === id) {
-  //     return customer;
-  //   }
-  // })
-  // return firstName.name.split(' ')[0]
+}
+
+getFirstName() {
   const firstName = this.name.split(' ');
   return firstName[0];
 }

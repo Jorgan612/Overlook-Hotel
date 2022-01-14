@@ -9,8 +9,8 @@ describe('Hotel', function() {
   let hotel;
 
   beforeEach(() => {
-    customer = new Customer(customersData[0], bookingsData, roomsData);
-    hotel = new Hotel(customer, bookingsData);
+    customer = new Customer(customersData[0], bookingsData);
+    hotel = new Hotel(customer, bookingsData, roomsData);
   });
 
   it('It should be a function', function() {
@@ -21,6 +21,9 @@ describe('Hotel', function() {
     expect(hotel).to.be.an.instanceOf(Hotel);
   });
 
+  it('It should have rooms', function () {
+    expect(hotel.rooms).to.be.an('array');
+  })
   //
   // it('It should have rooms', function() {
   //   expect(hotel.rooms).to.equal(roomsData);
