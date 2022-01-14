@@ -11,7 +11,7 @@ describe('Customer', function() {
     customer = new Customer(customersData[0], bookingsData);
     customer2 = new Customer(customersData[1], bookingsData);
 
-  })
+  });
 
   it('It should be a function', function() {
     expect(Customer).to.be.a('function');

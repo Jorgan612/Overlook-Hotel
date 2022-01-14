@@ -1,6 +1,6 @@
 class Hotel {
-  constructor() {
-
+  constructor(customersData, bookingsData, roomsData) {
+    this.rooms = roomsData;
   }
 };
 

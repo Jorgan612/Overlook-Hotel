@@ -3,8 +3,14 @@ class Customer {
     this.id = customersData.id;
     this.name = customersData.name;
     this.bookings = bookings;
+    this.currentCustomer;
 // bookings currently has ALL of the customers in test datas bookings
   }
+
+getCurrentCustomerBookings() {
+
+}
+
 getFirstName() {
   // do you need to figure out a way to match customer
   // id's to determine correct customer name?
