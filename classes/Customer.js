@@ -2,46 +2,12 @@ class Customer {
   constructor(customersData) {
     this.id = customersData.id;
     this.name = customersData.name;
-    // this.bookings = bookings;
-    // this.currentCustomerBookings;
-    // this.totalBookingCost;
-// bookings currently has ALL of the customers in test datas bookings
   }
-
-// getCurrentCustomerBookings(customerInfo) {
-//   const currentCustomerBookings = customerInfo.bookings.filter((booking) => {
-//     if (this.id === booking.userID) {
-//       return booking;
-//     }
-//   }).sort((a, b) => {
-//     if (a.date < b.date) {
-//       return - 1;
-//     }
-//     if (a.date > b.date) {
-//       return 1;
-//     }
-//     else {
-//       return 0;
-//     }
-//   })
-//     this.currentCustomerBookings = currentCustomerBookings;
-//     return currentCustomerBookings;
-//   }
-
-calculateTotalCostOfAllCustomerBookings(customer) {
-  console.log(this.currentCustomerBookings)
-  const totalBookingCost = this.currentCustomerBookings.reduce((acc, booking) => {
-    // acc += booking.
-    return acc;
-  }, 0);
-  this.totalBookingCost = totalBookingCost;
-}
 
 getFirstName() {
   const firstName = this.name.split(' ');
   return firstName[0];
-}
-
+  }
 }
 
 export default Customer;

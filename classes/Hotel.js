@@ -7,7 +7,6 @@ class Hotel {
   }
 
   getCurrentCustomerBookings(customerInfo) {
-    console.log(customerInfo)
     const currentCustomerBookings = customerInfo.bookings.filter((booking) => {
       if (this.customers.id === booking.userID) {
         return booking;
@@ -28,7 +27,14 @@ class Hotel {
       return currentCustomerBookings;
     }
 
-
+    // calculateTotalCostOfAllCustomerBookings(customer) {
+    //   console.log(this.currentCustomerBookings)
+    //   const totalBookingCost = this.currentCustomerBookings.reduce((acc, booking) => {
+    //     // acc += booking.
+    //     return acc;
+    //   }, 0);
+    //   this.totalBookingCost = totalBookingCost;
+    // }
 
   // getRoomDetails() {
   //   this.roomInfo = this.rooms.find((room) => {

@@ -15,10 +15,10 @@ const customersData = [
 
 const bookingsData = [
   {
-    "id": "5fwrgu4i7k55hl6t7",
+    "id": "5fwrgu4i7k55h16t6",
     "userID": 1,
-    "date": "2022/01/14",
-    "roomNumber": 3,
+    "date": "2022/01/15",
+    "roomNumber": 2,
     "roomServiceCharges": []
   },
   {
@@ -36,10 +36,10 @@ const bookingsData = [
     "roomServiceCharges": []
   },
   {
-    "id": "5fwrgu4i7k55h16t6",
+    "id": "5fwrgu4i7k55hl6t7",
     "userID": 1,
-    "date": "2022/01/15",
-    "roomNumber": 2,
+    "date": "2022/01/14",
+    "roomNumber": 3,
     "roomServiceCharges": []
   },
   {
