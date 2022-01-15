@@ -150,14 +150,14 @@ button {
 
 .select-date-label {
   @include flexbox(none, center, center);
-  @include fontSize(40px);
+  @include fontSize(30px);
   @include heightAndWidth(70%, 30%);
   background-color:  #f3f3f3;
   color: #000000;
   margin: 5px;
 }
 
-.available-rooms-input {
+.available-rooms-date-input {
   @include heightAndWidth(70%, 70%);
   @include fontSize(30px);
   font-family: 'Six Caps', sans-serif;

@@ -39,7 +39,7 @@
       <section class="select-date-section">
         <div class="booking-date-selection-div">
           <label class="select-date-label" for="date">Select a Date:</label>
-          <input class="available-rooms-input" type="date" id="date" name="date">
+          <input class="available-rooms-date-input" type="date" id="date" name="date" value="date">
         </div>
         <div class="radio-button-room-type-div">
           <div class="radio-styling-div">
@@ -73,7 +73,7 @@
           <p>1 full bed</P>
         </article>
       </div>
-      <button class="book-available-room-button">Book Room</button>
+      <button class="book-available-room-button" id="bookAvailableRoomButton">Book Room</button>
     </section>
     <section class="right-user-booking-log-section">
       <div class="customer-bookings-div">
@@ -85,6 +85,7 @@
       </div>
     </section>
   </section>
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   <script src="bundle.js"></script>
 </body>
 </html>

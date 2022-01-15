@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 class Hotel {
   constructor(roomsData, bookingsData, customersData) {
     this.rooms = roomsData;
