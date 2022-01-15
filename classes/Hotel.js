@@ -8,6 +8,7 @@ class Hotel {
     this.currentCustomerBookings;
     this.totalBookingCost;
     this.availableRooms;
+    this.unavailableRooms;
   }
 
 getCurrentCustomerBookings() {
@@ -51,6 +52,10 @@ calculateTotalCostOfAllCustomerBookings(customer) {
       } else if (roomType === 'residential suite' && room.roomType === 'residential suite') {
         this.availableRooms.push(room);
       } else if (roomType === 'suite' && room.roomType === 'suite') {
+        this.availableRooms.push(room);
+      } else if (roomType === 'single room' && room.roomType === 'single room') {
+        this.availableRooms.push(room);
+      } else if (roomType === 'junior suite' && room.roomType === 'junior suite') {
         this.availableRooms.push(room);
       }
     })

@@ -25,11 +25,14 @@ displayAvailableRooms(availableRooms) {
   const availableRoomsDiv = document.querySelector('#availableRoomsDiv');
   availableRoomsDiv.innerHTML = "";
   availableRooms.forEach((room) => {
+    //<input type="radio" id="${tag}" name="tag" value="${tag}">
+      // <label for="${tag}">${tag}</label>
+/// above code might go in place of or combined with below innerHTML
     const availableRoomCard = `
     <article class="available-room-card">
-      <p>${room.costPerNight}</P>
+      <p>$ ${room.costPerNight}</P>
       <p>${room.roomType}</P>
-      <p>${room.numbeds} ${room.bedSize} bed</P>
+      <p>${room.numBeds} ${room.bedSize} bed</P>
     </article>
     `
     availableRoomsDiv.innerHTML += availableRoomCard

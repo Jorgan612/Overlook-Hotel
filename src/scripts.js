@@ -18,6 +18,7 @@ import './images/overlook-carpet-top-down.png';
 // Query Selectors
 
 const bookAvailableRoomButton = document.querySelector('#bookAvailableRoomButton');
+const checkAvailibilityButton = document.querySelector('#checkAvailibilityButton');
 
 
 
@@ -55,12 +56,11 @@ const findAvailableBookings = () => {
   let selectedCalendarInputDate = dayjs(calendarInputDate.value).format('YYYY/MM/DD');
   let roomTypeInput = document.querySelector('input[name="roomType"]:checked').value;
   hotel.checkRoomAvailability(selectedCalendarInputDate, roomTypeInput);
-  console.log('available rooms', hotel.availableRooms)
-  domUpdates.displayAvailableRooms();
+  domUpdates.displayAvailableRooms(hotel.availableRooms);
 }
 
 
 // Event Listeners
 
-bookAvailableRoomButton.addEventListener('click', findAvailableBookings);
+checkAvailibilityButton.addEventListener('click', findAvailableBookings);
 window.addEventListener('load', fetchAll);
