@@ -2,14 +2,14 @@ class Hotel {
   constructor(roomsData, bookingsData, customersData) {
     this.rooms = roomsData;
     this.bookings = bookingsData;
-    this.customers = customersData;
+    this.customer = customersData;
     this.currentCustomerBookings;
     this.totalBookingCost;
   }
 
-getCurrentCustomerBookings(customerInfo) {
-  const currentCustomerBookings = customerInfo.bookings.filter((booking) => {
-    if (this.customers.id === booking.userID) {
+getCurrentCustomerBookings() {
+  const currentCustomerBookings = this.bookings.filter((booking) => {
+    if (this.customer.id === booking.userID) {
       return booking;
     }
   }).sort((a, b) => {
@@ -29,7 +29,7 @@ calculateTotalCostOfAllCustomerBookings(customer) {
     })
     return acc;
   }, 0);
-this.totalBookingCost = Number(customerTotalBookingCost.toFixed(2));
+    this.totalBookingCost = Number(customerTotalBookingCost.toFixed(2));
   }
 
 // getRoomDetails() {
