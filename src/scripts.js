@@ -37,6 +37,8 @@ const fetchAll = () => {
     getCustomerInformation()
     document.getElementById('date').setAttribute('min', today);
     document.getElementById('date').setAttribute('value', today);
+    const allroomTypesRadionButton = document.getElementById('all');
+    allroomTypesRadionButton.checked = true;
   })
 }
 
