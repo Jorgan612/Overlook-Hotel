@@ -6,7 +6,9 @@ import { customersData, bookingsData, roomsData } from './test-dataSets';
 describe('Hotel', function() {
 
   let customer;
+  let customer2;
   let hotel;
+  let hotel2;
 
   beforeEach(() => {
     customer = new Customer(customersData[0]);
@@ -45,12 +47,12 @@ describe('Hotel', function() {
       {id: '5fwrgu4i7k55h16t6', userID: 1, date: '2022/01/15', roomNumber: 2, roomServiceCharges: []}
     ]);
   });
-  //
-  // it('It should calculate the total cost of all customer bookings', function () {
-  //   customer.getCurrentCustomerBookings(customer);
-  //   customer.calculateTotalCostOfAllCustomerBookings(customer);
-  //   expect(customer.totalBookingCost).to.equal(968.52)
-  // })
+
+  it('It should calculate the total cost of all of a customers bookings', function () {
+    hotel.getCurrentCustomerBookings(hotel);
+    hotel.calculateTotalCostOfAllCustomerBookings(hotel);
+    expect(hotel.totalBookingCost).to.equal(968.52);
+  });
 
 
 });
