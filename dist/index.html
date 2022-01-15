@@ -35,10 +35,30 @@
       </div>
     </header>
     <section class="left-booking-section">
-      <button class="book-a-room-button">Book a Room</button>
+      <h2 class="book-a-room-heading">Book a Room</h2>
       <section class="select-date-section">
-        <label class="select-date-label" for="date">Select a Date:</label>
-        <input class="available-rooms-input" type="date" id="date" name="date">
+        <div class="booking-date-selection-div">
+          <label class="select-date-label" for="date">Select a Date:</label>
+          <input class="available-rooms-input" type="date" id="date" name="date">
+        </div>
+        <div class="radio-button-room-type-div">
+          <div class="radio-styling-div">
+            <input class="radio-button" type="radio" id="residential" name="roomType" value="residential">
+            <label for="residential">Residential Suite</label>
+          </div>
+          <div class="radio-styling-div">
+            <input class="radio-button" type="radio" id="suite" name="roomType" value="suite">
+            <label for="suite">Suite</label>
+          </div>
+          <div class="radio-styling-div">
+            <input class="radio-button" type="radio" id="single" name="roomType" value="single">
+            <label for="single">Single Room</label>
+          </div>
+          <div class="radio-styling-div">
+            <input class="radio-button" type="radio" id="junior" name="roomType" value="junior">
+            <label for="junior">Junior Suite</label>
+          </div>
+        </div>
       </section>
       <div class="available-rooms-div">
           <!-- AVAILABLE ROOMS GO HERE!  -->
@@ -53,11 +73,11 @@
           <p>1 full bed</P>
         </article>
       </div>
-      <button class="select-available-room-button">Select Room</button>
+      <button class="book-available-room-button">Book Room</button>
     </section>
     <section class="right-user-booking-log-section">
       <div class="customer-bookings-div">
-        <h2 class="customer-bookings-header">Customer Bookings</h2>
+        <h2 class="customer-bookings-header">Customer Bookings<span class="total-spent-on-bookings">   Total Spent: </span></h2>
         <div class="display-customer-bookings-div">
           <!-- DOM display of customer bookings here!! -->
           <article class="user-booking-card">
