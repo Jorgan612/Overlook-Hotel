@@ -16,6 +16,10 @@ displayCustomerInformation(bookingInfo) {
     `
     customerBookingsContainer.innerHTML += bookingCard;
   })
+},
+displayPersonalizedGreeting(customer) {
+  const greetingMsg = document.querySelector('#greetingMsg');
+  greetingMsg.innerText = `Welcome, ${customer}.`
 }
 }
 

@@ -21,7 +21,6 @@ getCurrentCustomerBookings() {
   }
 
 calculateTotalCostOfAllCustomerBookings(customer) {
-  console.log('param  hotel in calculate cost ------', customer)
   const customerTotalBookingCost = this.currentCustomerBookings.reduce((acc, booking) => {
     this.rooms.forEach((room) => {
       if (room.number === booking.roomNumber) {
@@ -30,7 +29,7 @@ calculateTotalCostOfAllCustomerBookings(customer) {
     })
     return acc;
   }, 0);
-this.totalBookingCost = Number(customerTotalBookingCost.toFixed(2));
+    this.totalBookingCost = Number(customerTotalBookingCost.toFixed(2));
   }
 
 // getRoomDetails() {

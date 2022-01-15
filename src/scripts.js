@@ -24,16 +24,17 @@ const fetchAll = () => {
     customer = new Customer(data[2][0]);
     hotel = new Hotel(data[0], data[1], data[2][0]);
     getCustomerInformation()
-    console.log(hotel)
   })
 }
 
 const getCustomerInformation = () => {
-  hotel.getCurrentCustomerBookings()
+  hotel.getCurrentCustomerBookings();
   hotel.calculateTotalCostOfAllCustomerBookings();
-  domUpdates.displayTotalAmountSpentOnBookings(hotel.totalBookingCost)
+  customer.getFirstName();
+  // console.log(customer.getFirstName())
+  domUpdates.displayTotalAmountSpentOnBookings(hotel.totalBookingCost);
   domUpdates.displayCustomerInformation(hotel.currentCustomerBookings);
-
+  domUpdates.displayPersonalizedGreeting(customer.getFirstName(hotel.customer));
 }
 
 window.addEventListener('load', fetchAll);
