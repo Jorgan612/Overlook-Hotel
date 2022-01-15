@@ -34,7 +34,7 @@ const getCustomerInformation = () => {
   // console.log(customer.getFirstName())
   domUpdates.displayTotalAmountSpentOnBookings(hotel.totalBookingCost);
   domUpdates.displayCustomerInformation(hotel.currentCustomerBookings);
-  domUpdates.displayPersonalizedGreeting(customer.getFirstName(hotel.customer));
+  domUpdates.displayPersonalizedGreeting(customer);
 }
 
 window.addEventListener('load', fetchAll);
