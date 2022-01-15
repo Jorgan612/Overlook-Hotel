@@ -48,12 +48,15 @@ const getCustomerInformation = () => {
   domUpdates.displayPersonalizedGreeting(customer);
 }
 
+
 const findAvailableBookings = () => {
   // event.preventDefault();
   let calendarInputDate = document.getElementById('date');
   let selectedCalendarInputDate = dayjs(calendarInputDate.value).format('YYYY/MM/DD');
-  // ABOVE VARIABLE PASSED INTO FUNCTION TO CHECK AVAILABILITY?!
-  console.log('new Date ------', selectedCalendarInputDate)
+  let roomTypeInput = document.querySelector('input[name="roomType"]:checked').value;
+  hotel.checkRoomAvailability(selectedCalendarInputDate, roomTypeInput);
+  console.log('available rooms', hotel.availableRooms)
+  domUpdates.displayAvailableRooms();
 }
 
 

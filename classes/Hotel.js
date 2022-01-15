@@ -7,6 +7,7 @@ class Hotel {
     this.customer = customersData;
     this.currentCustomerBookings;
     this.totalBookingCost;
+    this.availableRooms;
   }
 
 getCurrentCustomerBookings() {
@@ -34,12 +35,26 @@ calculateTotalCostOfAllCustomerBookings(customer) {
     this.totalBookingCost = Number(customerTotalBookingCost.toFixed(2));
   }
 
-// getRoomDetails() {
-//   this.roomInfo = this.rooms.find((room) => {
-//     if (room.number === )
-//   })
-//   return this.roomInfo;
-//   }
+  checkRoomAvailability(date, roomType) {
+    this.availableRooms = [];
+    this.unavailableRooms = [];
+    const filterAvailableRooms = this.bookings.filter((booking) => {
+      if (booking.date === date) {
+        this.unavailableRooms.push(booking.roomNumber)
+      }
+    })
+    this.rooms.forEach((room) => {
+      if (this.unavailableRooms.includes(room.number)) {
+        return;
+      } else if (roomType === 'all') {
+        this.availableRooms.push(room);
+      } else if (roomType === 'residential suite' && room.roomType === 'residential suite') {
+        this.availableRooms.push(room);
+      } else if (roomType === 'suite' && room.roomType === 'suite') {
+        this.availableRooms.push(room);
+      }
+    })
+  }
 };
 
 export default Hotel;
