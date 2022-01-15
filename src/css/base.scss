@@ -199,7 +199,7 @@ button {
 .book-available-room-button {
   @include heightAndWidth(10%, 50%);
   @include fontSize(40px);
-  margin-top: 10px;
+  margin-top: 60px;
   margin-bottom: 10px;
   box-shadow: $box-shadow;
 }
@@ -240,6 +240,11 @@ button {
   color: #fff;
   margin: 10px;
   box-shadow: $box-shadow;
+}
+
+.card-details {
+  @include fontSize(60px);
+  margin: 5px;
 }
 
 .hidden {

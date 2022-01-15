@@ -1,7 +1,7 @@
 const domUpdates = {
 displayTotalAmountSpentOnBookings(bookingAmount) {
   const totalSpentOnBookings = document.querySelector('#customerBookingsHeader');
-  totalSpentOnBookings.innerText = `Customer Books -  Total Spent:$${bookingAmount}`;
+  totalSpentOnBookings.innerText = `Total Spent:  $${bookingAmount}`;
 },
 displayCustomerInformation(bookingInfo) {
   const customerBookingsContainer = document.querySelector('#displayCustomerBookings');
@@ -9,9 +9,8 @@ displayCustomerInformation(bookingInfo) {
   bookingInfo.forEach((booking) => {
     const bookingCard = `
     <article class="user-booking-card">
-      <p>Booking Details:</p>
-      <p>Date:${booking.date}</p>
-      <p>Room:${booking.roomNumber}</p>
+      <p class="card-details">Date - ${booking.date}</p>
+      <p class="card-details">Room - ${booking.roomNumber}</p>
     </article>
     `
     customerBookingsContainer.innerHTML += bookingCard;

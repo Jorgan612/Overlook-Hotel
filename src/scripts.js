@@ -31,7 +31,6 @@ const getCustomerInformation = () => {
   hotel.getCurrentCustomerBookings();
   hotel.calculateTotalCostOfAllCustomerBookings();
   customer.getFirstName();
-  // console.log(customer.getFirstName())
   domUpdates.displayTotalAmountSpentOnBookings(hotel.totalBookingCost);
   domUpdates.displayCustomerInformation(hotel.currentCustomerBookings);
   domUpdates.displayPersonalizedGreeting(customer);
