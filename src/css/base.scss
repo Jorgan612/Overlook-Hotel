@@ -189,6 +189,12 @@ button {
   @include fontSize(30px);
 }
 
+.no-availability-msg-p-tag {
+  @include fontSize(45px);
+  color: #000000;
+  margin: 10px;
+}
+
 .available-rooms-div {
   @include flexbox(column, center, center);
   @include heightAndWidth(40%, 80%);

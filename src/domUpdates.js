@@ -21,7 +21,7 @@ displayPersonalizedGreeting(customer) {
   greetingMsg.innerText = `Welcome,  ${customer.firstName} .`
   },
 displayAvailableRooms(availableRooms) {
-  console.log('availableRooms param in displayAvailableRooms hotel method----', availableRooms)
+  console.log('availableRooms in displayAvailableRooms ------', availableRooms)
   const availableRoomsDiv = document.querySelector('#availableRoomsDiv');
   availableRoomsDiv.innerHTML = "";
   availableRooms.forEach((room) => {
@@ -38,11 +38,11 @@ displayAvailableRooms(availableRooms) {
     availableRoomsDiv.innerHTML += availableRoomCard
   })
 
-  //
-  // if (availableRooms.length === 0) {
-  //   // let noAvailabilityMsg = `We apologise for the inconvience but there are no available rooms to book for the selected date and/or room type. Please refine your search and try again.`
-  //   return `We apologise for the inconvience but there are no available rooms to book for the selected date and/or room type. Please refine your search and try again.`
-  // }
+
+  if (availableRooms.length === 0) {
+    let noAvailabilityMsg = `<p class="no-availability-msg-p-tag">We apologize for the inconvience but there are no available rooms to book for the selected date and/or room type. Please refine your search and try again.</p>`
+    availableRoomsDiv.innerHTML = noAvailabilityMsg;
+  }
   }
 }
 
