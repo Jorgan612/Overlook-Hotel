@@ -19,7 +19,7 @@ displayCustomerInformation(bookingInfo) {
 },
 displayPersonalizedGreeting(customer) {
   const greetingMsg = document.querySelector('#greetingMsg');
-  greetingMsg.innerText = `Welcome, ${customer}.`
+  greetingMsg.innerText = `Welcome,  ${customer.firstName} .`
 }
 }
 
