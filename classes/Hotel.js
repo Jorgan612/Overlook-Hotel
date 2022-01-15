@@ -2,14 +2,14 @@ class Hotel {
   constructor(roomsData, bookingsData, customersData) {
     this.rooms = roomsData;
     this.bookings = bookingsData;
-    this.customers = customersData;
+    this.customer = customersData;
     this.currentCustomerBookings;
     this.totalBookingCost;
   }
 
-getCurrentCustomerBookings(customerInfo) {
-  const currentCustomerBookings = customerInfo.bookings.filter((booking) => {
-    if (this.customers.id === booking.userID) {
+getCurrentCustomerBookings() {
+  const currentCustomerBookings = this.bookings.filter((booking) => {
+    if (this.customer.id === booking.userID) {
       return booking;
     }
   }).sort((a, b) => {
@@ -21,6 +21,7 @@ getCurrentCustomerBookings(customerInfo) {
   }
 
 calculateTotalCostOfAllCustomerBookings(customer) {
+  console.log('param  hotel in calculate cost ------', customer)
   const customerTotalBookingCost = this.currentCustomerBookings.reduce((acc, booking) => {
     this.rooms.forEach((room) => {
       if (room.number === booking.roomNumber) {
