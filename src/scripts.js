@@ -14,13 +14,11 @@ import Hotel from '../classes/Hotel.js';
 import './images/overlook-carpet-top-down.png';
 
 // Query Selectors
-
 const bookAvailableRoomButton = document.querySelector('#bookAvailableRoomButton');
 const checkAvailibilityButton = document.querySelector('#checkAvailibilityButton');
 
 
 // Global variables
-
 let customer;
 let hotel
 // let today = dayjs().format('YYYY-MM-DD');
@@ -34,8 +32,11 @@ const fetchAll = () => {
     getCustomerInformation()
     // document.getElementById('date').setAttribute('min', today);
     // document.getElementById('date').setAttribute('value', today);
+    let selectedCalendarInputDate = dayjs().format('YYYY/MM/DD');
+    console.log('on page load date value?---', selectedCalendarInputDate)
     const allroomTypesRadioButton = document.getElementById('all');
     allroomTypesRadioButton.checked = true;
+
   })
 }
 
@@ -56,13 +57,14 @@ const findAvailableBookings = () => {
   let roomTypeInput = document.querySelector('input[name="roomType"]:checked').value;
   hotel.checkRoomAvailability(selectedCalendarInputDate, roomTypeInput);
   domUpdates.displayAvailableRooms(hotel.availableRooms);
+  console.log('selected date ---', selectedCalendarInputDate)
 }
 
 const makeNewBooking = () => {
-  let availableRoomRadioButton = document.getElementById('${room.number}');
+  // let availableRoomRadioButton = document.getElementById('${room.number}');
   let selectedRoomToBook = document.querySelector('input[name="availableRoomRadioButton"]:checked').value;
-  hotel.findRoomDetails(Number(selectedRoomToBook));
-   console.log('hotel.specificRoomDetails----', hotel.specificRoomDetails)
+  hotel.findRoomBookingDetails(Number(selectedRoomToBook));
+   console.log('hotel.specificRoomDetails----number', hotel.specificRoomDetails)
 }
 
 // Event Listeners

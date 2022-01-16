@@ -21,10 +21,7 @@ displayPersonalizedGreeting(customer) {
   greetingMsg.innerText = `Welcome,  ${customer.firstName} .`
   },
 displayAvailableRooms(availableRooms) {
-  console.log('availableRooms in displayAvailableRooms ------', availableRooms)
   const availableRoomsDiv = document.querySelector('#availableRoomsDiv');
-  // const firstAvailableRoomRadioButton = document.getElementById('${availableRooms[0]}');
-
   availableRoomsDiv.innerHTML = "";
   availableRooms.forEach((room) => {
     const availableRoomCard = `

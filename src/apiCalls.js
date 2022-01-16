@@ -18,3 +18,5 @@ export const fetchCustomers = () => {
     .then(data => data.customers)
     .catch(err => console.log('Oops! Something went wrong!', err))
 }
+
+// export const addNewBooking = (bookingInfo)
