@@ -204,11 +204,11 @@ button {
 }
 
 .available-room-card {
-  @include flexbox(none, space-around, center);
+  @include flexbox(none, flex-start, center);
   @include heightAndWidth(20%, 90%);
   background-color: #990000;
   box-shadow: $box-shadow;
-  padding: 5px;
+  padding: 10px;
   margin: 5px;
 }
 
@@ -247,6 +247,7 @@ button {
   @include heightAndWidth(93%, 97%);
   flex-wrap: wrap;
   overflow-y: auto;
+  margin: 10px;
 }
 
 .user-booking-card {

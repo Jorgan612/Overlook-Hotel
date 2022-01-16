@@ -23,22 +23,24 @@ displayPersonalizedGreeting(customer) {
 displayAvailableRooms(availableRooms) {
   console.log('availableRooms in displayAvailableRooms ------', availableRooms)
   const availableRoomsDiv = document.querySelector('#availableRoomsDiv');
+  // const firstAvailableRoomRadioButton = document.getElementById('${availableRooms[0]}');
+
   availableRoomsDiv.innerHTML = "";
   availableRooms.forEach((room) => {
-    //<input type="radio" id="${tag}" name="tag" value="${tag}">
-      // <label for="${tag}">${tag}</label>
-/// above code might go in place of or combined with below innerHTML
     const availableRoomCard = `
     <article class="available-room-card">
-      <p>$ ${room.costPerNight}</P>
-      <p>${room.roomType}</P>
-      <p>${room.numBeds} ${room.bedSize} bed</P>
+      <input class="available-room-radio-input" type="radio" id="${room.number}" name="availableRoomRadionButton" value="${room.number}">
+      <label class="available-room-radio-input" for="${room.number}">$${room.costPerNight}  ┃  ${room.roomType}  ┃  ${room.numBeds} ${room.bedSize} bed ┃ room ${room.number}</label>
     </article>
     `
+    // firstAvailableRoomRadioButton.checked = true;
+    // <article class="available-room-card">
+    //   <p>$ ${room.costPerNight}</P>
+    //   <p>${room.roomType}</P>
+    //   <p>${room.numBeds} ${room.bedSize} bed</P>
+    // </article>
     availableRoomsDiv.innerHTML += availableRoomCard
   })
-
-
   if (availableRooms.length === 0) {
     let noAvailabilityMsg = `<p class="no-availability-msg-p-tag">We apologize for the inconvience but there are no available rooms to book for the selected date and/or room type. Please refine your search and try again.</p>`
     availableRoomsDiv.innerHTML = noAvailabilityMsg;

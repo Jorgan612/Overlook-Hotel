@@ -9,6 +9,7 @@ class Hotel {
     this.totalBookingCost;
     this.availableRooms;
     this.unavailableRooms;
+    this.specificRoomDetails;
   }
 
 getCurrentCustomerBookings() {
@@ -17,7 +18,7 @@ getCurrentCustomerBookings() {
       return booking;
     }
   }).sort((a, b) => {
-    if (a.date < b.date) { return - 1 }
+    if (a.date < b.date) { return -1 }
     if (a.date > b.date) { return 1 }
     else { return 0 };
   })
@@ -59,6 +60,12 @@ calculateTotalCostOfAllCustomerBookings(customer) {
         this.availableRooms.push(room);
       }
     })
+  }
+  findRoomDetails(roomNumber) {
+    const roomDetails = this.rooms.find((room) => {
+      return room.numer === roomNumber;
+    })
+    this.specificRoomDetails = roomDetails;
   }
 };
 

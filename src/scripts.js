@@ -13,22 +13,16 @@ import Hotel from '../classes/Hotel.js';
 // images
 import './images/overlook-carpet-top-down.png';
 
-
-
 // Query Selectors
-
 const bookAvailableRoomButton = document.querySelector('#bookAvailableRoomButton');
 const checkAvailibilityButton = document.querySelector('#checkAvailibilityButton');
 
-
-
 // Global variables
-
 let customer;
 let hotel
 let today = dayjs().format('YYYY-MM-DD');
 
-
+//functions
 const fetchAll = () => {
   Promise.all([fetchRooms(), fetchBookings(), fetchCustomers()])
   .then(data => {
@@ -51,9 +45,7 @@ const getCustomerInformation = () => {
   domUpdates.displayPersonalizedGreeting(customer);
 }
 
-
 const findAvailableBookings = () => {
-  // event.preventDefault();
   let calendarInputDate = document.getElementById('date');
   let selectedCalendarInputDate = dayjs(calendarInputDate.value).format('YYYY/MM/DD');
   let roomTypeInput = document.querySelector('input[name="roomType"]:checked').value;
@@ -61,8 +53,13 @@ const findAvailableBookings = () => {
   domUpdates.displayAvailableRooms(hotel.availableRooms);
 }
 
+const makeNewBooking = () => {
+  let availableRoomRadionButton = document.getElementById('${room.number}');
+  let selectedRoomToBook = document.querySelector('input[name="availableRoomRadionButton"]:checked').value;
+  console.log('is the available booking radio button working???!--------', selectedRoomToBook)
+}
 
 // Event Listeners
-
+bookAvailableRoomButton.addEventListener('click', makeNewBooking);
 checkAvailibilityButton.addEventListener('click', findAvailableBookings);
 window.addEventListener('load', fetchAll);
