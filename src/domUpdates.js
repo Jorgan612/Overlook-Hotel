@@ -29,7 +29,7 @@ displayAvailableRooms(availableRooms) {
   availableRooms.forEach((room) => {
     const availableRoomCard = `
     <article class="available-room-card">
-      <input class="available-room-radio-input" type="radio" id="${room.number}" name="availableRoomRadionButton" value="${room.number}">
+      <input class="available-room-radio-input" type="radio" id="${room.number}" name="availableRoomRadioButton" value="${room.number}">
       <label class="available-room-radio-input" for="${room.number}">$${room.costPerNight}  ┃  ${room.roomType}  ┃  ${room.numBeds} ${room.bedSize} bed ┃ room ${room.number}</label>
     </article>
     `
