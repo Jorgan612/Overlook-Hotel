@@ -56,8 +56,8 @@ describe('Hotel', function() {
 
   it('It should check room availability', function () {
     hotel.checkRoomAvailability('2022/01/15', 'suite');
-    console.log('available rooms -----', hotel.availableRooms)
-    // expect(hotel.availableRooms).to.equal()
+    console.log('available rooms -----', hotel.unavailableRooms)
+    expect(hotel.unavailableRooms).to.equal()
   })
 
 
