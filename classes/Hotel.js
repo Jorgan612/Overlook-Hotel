@@ -63,7 +63,7 @@ calculateTotalCostOfAllCustomerBookings(customer) {
   }
   findRoomDetails(roomNumber) {
     const roomDetails = this.rooms.find((room) => {
-      return room.numer === roomNumber;
+      return room.number === roomNumber
     })
     this.specificRoomDetails = roomDetails;
   }
