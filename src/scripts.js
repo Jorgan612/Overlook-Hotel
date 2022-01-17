@@ -17,11 +17,21 @@ import './images/overlook-carpet-top-down.png';
 // Query Selectors
 const bookAvailableRoomButton = document.querySelector('#bookAvailableRoomButton');
 const checkAvailibilityButton = document.querySelector('#checkAvailibilityButton');
+const calendarInput = document.querySelector('.calendar-input-js');
+const userNameInput = document.querySelector('#user');
+const userPasswordInput = document.querySelector('#password');
+const loginButton = document.querySelector('#LoginButton');
+// const availableRoomInput = document.querySelector('.available-room-radio-input');
 
 
 // Global variables
 let customer;
 let hotel
+checkAvailibilityButton.disabled = true;
+loginButton.disabled = true;
+
+// bookAvailableRoomButton.disabled = true;
+
 // let today = dayjs().format('YYYY-MM-DD');
 
 // functions
@@ -67,8 +77,29 @@ const makeNewBooking = () => {
   getCustomerInformation();
 }
 
+const determineValidCalendarInput = () => {
+  if (calendarInput.value) {
+    checkAvailibilityButton.disabled = false;
+    domUpdates.removeDisableOnCheckAvailabilityButton();
+  // if (availableRoomInput.value) {
+  //   bookAvailableRoomButton.disabled = false;
+  //   domUpdates.removeDisableOnButton();
+  // }
+  }
+}
+
+const determineValidLoginInput = () => {
+  if (userNameInput.value && userPasswordInput.value) {
+    loginButton.disabled = false;
+    domUpdates.removeDisableOnButton();
+  }
+}
 
 // Event Listeners
+// availableRoomInput.addEventListener('input', determineValidInput)
+// userNameInput.addEventListener('keydown', determineValidInput);
+// userPasswordInput.addEventListener('keydown', determineValidInput);
+calendarInput.addEventListener('input', determineValidCalendarInput);
 bookAvailableRoomButton.addEventListener('click', makeNewBooking);
 checkAvailibilityButton.addEventListener('click', findAvailableRooms);
 window.addEventListener('load', fetchAll);

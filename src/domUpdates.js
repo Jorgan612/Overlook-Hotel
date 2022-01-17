@@ -36,6 +36,17 @@ displayAvailableRooms(availableRooms) {
     let noAvailabilityMsg = `<p class="no-availability-msg-p-tag">We apologize for the inconvience but there are no available rooms to book for the selected date and/or room type. Please refine your search and try again.</p>`;
     availableRoomsDiv.innerHTML = noAvailabilityMsg;
     }
+  },
+removeDisableOnCheckAvailabilityButton() {
+  // if (!loginButton.disabled) {
+  //   loginButton.classList.remove('disable-button');
+  // }
+    checkAvailibilityButton.classList.remove('disable-button');
+
+
+    // else {
+    // bookAvailableRoomButton.classList.remove('disable-button');
+    // }
   }
 }
 

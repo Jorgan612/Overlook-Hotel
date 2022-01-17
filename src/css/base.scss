@@ -267,6 +267,12 @@ button {
   margin: 5px;
 }
 
+.disable-button {
+  background-color: #999999;
+  color: #bcbcbc;
+  cursor: default;
+}
+
 .hidden {
   display: none;
 }
