@@ -5,7 +5,8 @@ import dayjs from 'dayjs';
 import { fetchRooms,
   fetchBookings,
   fetchCustomers,
-  addNewBooking
+  addNewBooking,
+  fetchSingleCustomers
 } from './apicalls';
 
 import Customer from '../classes/Customer.js';
@@ -21,24 +22,24 @@ const calendarInput = document.querySelector('.calendar-input-js');
 const userNameInput = document.querySelector('#user');
 const userPasswordInput = document.querySelector('#password');
 const loginButton = document.querySelector('#LoginButton');
+const loginView = document.querySelector('.main-login-section');
+const userDashboardView = document.querySelector('.user-dashboard-section');
+const userLoginErrorMsg = document.querySelector('.login-error-msg');
+const availableRoomsView = document.querySelector('.available-rooms-div')
 
 
 // Global variables
 let customer;
 let hotel
 checkAvailibilityButton.disabled = true;
-loginButton.disabled = true;
-// let today = dayjs().format('YYYY-MM-DD');
 
 // functions
-const fetchAll = () => {
-  Promise.all([fetchRooms(), fetchBookings(), fetchCustomers()])
+const fetchAll = (id) => {
+  Promise.all([fetchRooms(), fetchBookings(), fetchCustomers(), fetchSingleCustomers(id)])
   .then(data => {
-    customer = new Customer(data[2][0]);
-    hotel = new Hotel(data[0], data[1], data[2][0]);
+    customer = new Customer(data[3]);
+    hotel = new Hotel(data[0], data[1], data[3]);
     getCustomerInformation()
-    // document.getElementById('date').setAttribute('min', today);
-    // document.getElementById('date').setAttribute('value', today);
     let selectedCalendarInputDate = dayjs().format('YYYY/MM/DD');
     const allroomTypesRadioButton = document.getElementById('all');
     allroomTypesRadioButton.checked = true;
@@ -46,12 +47,15 @@ const fetchAll = () => {
 }
 
 const getCustomerInformation = () => {
+
   hotel.getCurrentCustomerBookings();
   hotel.calculateTotalCostOfAllCustomerBookings();
-  customer.getFirstName();
   domUpdates.displayTotalAmountSpentOnBookings(hotel.totalBookingCost);
   domUpdates.displayCustomerInformation(hotel.currentCustomerBookings);
   domUpdates.displayPersonalizedGreeting(customer);
+  domUpdates.addHidden(loginView);
+  domUpdates.removeHidden(userDashboardView);
+  console.log('customer-----', hotel.currentCustomerBookings)
 }
 
 const findAvailableRooms = () => {
@@ -60,7 +64,7 @@ const findAvailableRooms = () => {
   let roomTypeInput = document.querySelector('input[name="roomType"]:checked').value;
   hotel.checkRoomAvailability(selectedCalendarInputDate, roomTypeInput);
   domUpdates.displayAvailableRooms(hotel.availableRooms);
-
+  domUpdates.removeHidden(bookAvailableRoomButton, availableRoomsView);
 }
 
 const makeNewBooking = () => {
@@ -69,10 +73,9 @@ const makeNewBooking = () => {
   let selectedRoomToBook = document.querySelector('input[name="availableRoomRadioButton"]:checked').value;
   hotel.collectBookingDetails(customer, selectedCalendarInputDate, selectedRoomToBook)
   addNewBooking(hotel.newBookingDetails);
-  fetchAll();
+  console.log('NewBookingDetails ---', hotel.newBookingDetails);
+  domUpdates.addHidden(bookAvailableRoomButton, availableRoomsView);
 }
-
-
 
 const determineValidCalendarInput = () => {
   if (calendarInput.value) {
@@ -81,13 +84,19 @@ const determineValidCalendarInput = () => {
   }
 }
 
-const determineValidLoginInput = () => {
-  if (userNameInput.value && userPasswordInput.value) {
-    loginButton.disabled = false;
-    domUpdates.removeDisableOnLoginButton();
+const loginUser = (event) => {
+  event.preventDefault();
+  let userName = userNameInput.value;
+  let userPassword = userPasswordInput.value;
+  let userNameIndex8 = [userName.charAt(8)];
+  let userNameIndex9 = [userName.charAt(9)];
+  let userloginID = Number(`${userNameIndex8}${userNameIndex9}`);
+  if (userloginID > 0 && userloginID <= 50 && userPassword === 'overlook2021') {
+    fetchAll(userloginID);
+  } else {
+    domUpdates.removeHidden(userLoginErrorMsg)
   }
 }
-
 // const getRequestErrorMsg = () => {
 // domUpdates.addHidden([]
 // }
@@ -99,9 +108,11 @@ const determineValidLoginInput = () => {
 // }
 
 // Event Listeners
-userNameInput.addEventListener('keydown', determineValidLoginInput);
-userPasswordInput.addEventListener('keydown', determineValidLoginInput);
+loginButton.addEventListener('click', loginUser);
+// userNameInput.addEventListener('keydown', determineValidLoginInput);
+// userPasswordInput.addEventListener('keydown', determineValidLoginInput);
 calendarInput.addEventListener('input', determineValidCalendarInput);
 bookAvailableRoomButton.addEventListener('click', makeNewBooking);
 checkAvailibilityButton.addEventListener('click', findAvailableRooms);
-window.addEventListener('load', fetchAll);
+// window.addEventListener('load', fetchAll);
+export { hotel, getCustomerInformation, fetchAll }

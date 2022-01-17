@@ -1,13 +1,9 @@
 const domUpdates = {
-  addHidden(elements) {
-    elements.forEach((item) => {
-      item.classList.add('hidden');
-    });
+  addHidden(...elements) {
+    elements.forEach(element => element.classList.add('hidden'));
   },
-  removeHidden(elements) {
-    elements.forEach((item) => {
-      item.classList.remove('hidden');
-    });
+  removeHidden(...elements) {
+    elements.forEach(element => element.classList.remove('hidden'));
   },
 displayTotalAmountSpentOnBookings(bookingAmount) {
   const totalSpentOnBookings = document.querySelector('#customerBookingsHeader');
@@ -29,7 +25,7 @@ displayCustomerInformation(bookingInfo) {
   },
 displayPersonalizedGreeting(customer) {
   const greetingMsg = document.querySelector('#greetingMsg');
-  greetingMsg.innerText = `Welcome,  ${customer.firstName} .`
+  greetingMsg.innerText = `Welcome,  ${customer.name} .`
   },
 displayAvailableRooms(availableRooms) {
   const availableRoomsDiv = document.querySelector('#availableRoomsDiv');
@@ -51,14 +47,11 @@ displayAvailableRooms(availableRooms) {
 removeDisableOnCheckAvailabilityButton() {
     checkAvailibilityButton.classList.remove('disable-button');
   },
-// removeDisableOnLoginButton() {
-//     loginButton.classList.remove('disable-button');
-//   },
-// showPostErrorMsg() {
-//   const availableRoomsDiv = document.querySelector('#availableRoomsDiv');
-//   availableRoomsDiv.innerHTML = "";
-//   availableRoomsDiv.innerHTML = "Something went wrong and we were unable to book the room. Please try again.";
-//   }
+showPostErrorMsg() {
+  const availableRoomsDiv = document.querySelector('#availableRoomsDiv');
+  availableRoomsDiv.innerHTML = "";
+  availableRoomsDiv.innerHTML = "Something went wrong and we were unable to book the room. Please try again.";
+  }
 }
 
 export default domUpdates;

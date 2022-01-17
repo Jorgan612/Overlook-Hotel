@@ -10,7 +10,7 @@
   <title>Overlook Hotel</title>
 </head>
 <body style="background-image: url(./images/overlook-carpet-top-down.png);" alt="cheesy hotel carpet">
-  <section class="main-login-section hidden">
+  <section class="main-login-section">
     <h1 class="overlook-login-page-welcome-msg">The Overlook welcomes you . . .</h1>
     <div class="login-page-bg-div">
       <form class="login-form">
@@ -18,11 +18,12 @@
         <input class="form-input" type="text" id="user" name="user">
         <label class="form-element-label" for="password">Password :</label>
         <input class="form-input" id="password" name="password">
-        <button class="login-button disable-button" id="LoginButton">Login</button>
+        <button class="login-button" id="LoginButton">Login</button>
+        <p class="login-error-msg hidden">INVALID USERNAME OR PASSWORD. PLEASE TRY AGAIN</p>
       </form>
     </div>
   </section>
-  <section class="user-dashboard-section">
+  <section class="user-dashboard-section hidden">
     <header class="dashboard-header">
       <div class="hotel-name-div">
         <h1 class="hotel-name">The Overlook Hotel</h1>
@@ -65,10 +66,10 @@
           <button class="check-availability-button disable-button" id="checkAvailibilityButton">Check Availability</button>
         </div>
       </section>
-      <div class="available-rooms-div" id="availableRoomsDiv">
+      <div class="available-rooms-div hidden" id="availableRoomsDiv">
           <!-- AVAILABLE ROOMS GO HERE!  -->
       </div>
-      <button class="book-available-room-button" id="bookAvailableRoomButton">Book Room</button>
+      <button class="book-available-room-button hidden" id="bookAvailableRoomButton">Book Room</button>
     </section>
     <section class="right-user-booking-log-section">
       <div class="customer-bookings-div">

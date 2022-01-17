@@ -1,3 +1,6 @@
+import { hotel, getCustomerInformation, fetchAll } from './scripts';
+import domUpdates from './domUpdates.js';
+
 export const fetchRooms = () => {
   return fetch("http://localhost:3001/api/v1/rooms")
     .then(response => response.json())
@@ -19,6 +22,14 @@ export const fetchCustomers = () => {
     .catch(err => console.log('Oops! Something went wrong!', err))
 }
 
+export const fetchSingleCustomers = (id) => {
+  return fetch(`http://localhost:3001/api/v1/customers/${id}`)
+    .then(response => response.json())
+    .then(data => data)
+    .catch(err => console.log('Oops! Something went wrong!', err))
+}
+
+
 export const addNewBooking = (bookingInfo) => {
   return fetch('http://localhost:3001/api/v1/bookings', {
     method: 'POST',
@@ -28,5 +39,7 @@ export const addNewBooking = (bookingInfo) => {
     }
   })
   .then(response => response.json())
-  .catch(err => showPostErrorMsg());
+  .then(response => hotel.bookings.push(response))
+  .then(fetchAll(bookingInfo.userID))
+  .catch(err => domUpdates.showPostErrorMsg());
 }
