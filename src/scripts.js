@@ -21,7 +21,6 @@ const calendarInput = document.querySelector('.calendar-input-js');
 const userNameInput = document.querySelector('#user');
 const userPasswordInput = document.querySelector('#password');
 const loginButton = document.querySelector('#LoginButton');
-// const availableRoomInput = document.querySelector('.available-room-radio-input');
 
 
 // Global variables
@@ -29,9 +28,6 @@ let customer;
 let hotel
 checkAvailibilityButton.disabled = true;
 loginButton.disabled = true;
-
-// bookAvailableRoomButton.disabled = true;
-
 // let today = dayjs().format('YYYY-MM-DD');
 
 // functions
@@ -74,31 +70,48 @@ const makeNewBooking = () => {
   hotel.collectBookingDetails(customer, selectedCalendarInputDate, selectedRoomToBook)
   addNewBooking(hotel.newBookingDetails);
   console.log('currentCustomerBookings AFTER post', hotel.currentCustomerBookings);
-  getCustomerInformation();
+  fetchAll();
+  // updateCustomerBookings();
+
+  // getCustomerInformation();
+}
+
+const updateCustomerBookings = () => {
+  debugger;
+fetchCustomers().then(data => {
+  hotel = new Hotel(data[0], data[1], data[2][0])
+  return hotel.bookings;
+})
+
 }
 
 const determineValidCalendarInput = () => {
   if (calendarInput.value) {
     checkAvailibilityButton.disabled = false;
     domUpdates.removeDisableOnCheckAvailabilityButton();
-  // if (availableRoomInput.value) {
-  //   bookAvailableRoomButton.disabled = false;
-  //   domUpdates.removeDisableOnButton();
-  // }
   }
 }
 
 const determineValidLoginInput = () => {
   if (userNameInput.value && userPasswordInput.value) {
     loginButton.disabled = false;
-    domUpdates.removeDisableOnButton();
+    domUpdates.removeDisableOnLoginButton();
   }
 }
 
+// const getRequestErrorMsg = () => {
+// domUpdates.addHidden([]
+// }
+
+// const postRequestErrorMsg = () => {
+//   // domUpdates.addHidden([]);
+//   // domUpdates.removeHidden([]);
+//   domUpdates.showPostErrorMsg();
+// }
+
 // Event Listeners
-// availableRoomInput.addEventListener('input', determineValidInput)
-// userNameInput.addEventListener('keydown', determineValidInput);
-// userPasswordInput.addEventListener('keydown', determineValidInput);
+userNameInput.addEventListener('keydown', determineValidLoginInput);
+userPasswordInput.addEventListener('keydown', determineValidLoginInput);
 calendarInput.addEventListener('input', determineValidCalendarInput);
 bookAvailableRoomButton.addEventListener('click', makeNewBooking);
 checkAvailibilityButton.addEventListener('click', findAvailableRooms);

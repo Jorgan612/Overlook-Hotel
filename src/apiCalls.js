@@ -22,11 +22,11 @@ export const fetchCustomers = () => {
 export const addNewBooking = (bookingInfo) => {
   return fetch('http://localhost:3001/api/v1/bookings', {
     method: 'POST',
-    body: JSON.stringify({userID:bookingInfo.userID, date:bookingInfo.date, roomNumber:bookingInfo.roomNumber}),
+    body: JSON.stringify({userID: bookingInfo.userID, date: bookingInfo.date, roomNumber: bookingInfo.roomNumber}),
     headers: {
       'Content-type': 'application/json',
     }
   })
   .then(response => response.json())
-  .catch(err => console.log('UNABLE TO ADD BOOKING AT THIS TIME'));
+  .catch(err => showPostErrorMsg());
 }
