@@ -71,19 +71,9 @@ const makeNewBooking = () => {
   addNewBooking(hotel.newBookingDetails);
   console.log('currentCustomerBookings AFTER post', hotel.currentCustomerBookings);
   fetchAll();
-  // updateCustomerBookings();
-
-  // getCustomerInformation();
 }
 
-const updateCustomerBookings = () => {
-  debugger;
-fetchCustomers().then(data => {
-  hotel = new Hotel(data[0], data[1], data[2][0])
-  return hotel.bookings;
-})
 
-}
 
 const determineValidCalendarInput = () => {
   if (calendarInput.value) {
