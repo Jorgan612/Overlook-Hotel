@@ -9,9 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Six+Caps&display=swap" rel="stylesheet">
   <title>Overlook Hotel</title>
 </head>
-<body style="background-image: url(./images/overlook-carpet-top-down.png);" alt="murder rug">
-  <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
-  <!-- <img src="./images/overlook-carpet-top-down.png" alt="creepy pattern"> -->
+<body style="background-image: url(./images/overlook-carpet-top-down.png);" alt="cheesy hotel carpet">
   <section class="main-login-section hidden">
     <h1 class="overlook-login-page-welcome-msg">The Overlook welcomes you . . .</h1>
     <div class="login-page-bg-div">
@@ -20,7 +18,7 @@
         <input class="form-input" type="text" id="user" name="user">
         <label class="form-element-label" for="password">Password :</label>
         <input class="form-input" id="password" name="password">
-        <button class="login-button form-elements">Login</button>
+        <button class="login-button disable-button" id="LoginButton">Login</button>
       </form>
     </div>
   </section>
@@ -30,7 +28,7 @@
         <h1 class="hotel-name">The Overlook Hotel</h1>
       </div>
       <div class="user-greeting-and-logout">
-        <h3 class="greeting-msg" id="greetingMsg"></h3>
+        <h2 class="greeting-msg" id="greetingMsg"></h2>
         <button class="nav-logout-button">Logout</button>
       </div>
     </header>
@@ -39,52 +37,50 @@
       <section class="select-date-section">
         <div class="booking-date-selection-div">
           <label class="select-date-label" for="date">Select a Date:</label>
-          <input class="available-rooms-input" type="date" id="date" name="date">
+          <input class="available-rooms-date-input calendar-input-js" type="date" id="date" name="date" value="date">
         </div>
         <div class="radio-button-room-type-div">
           <div class="radio-styling-div">
-            <input class="radio-button" type="radio" id="residential" name="roomType" value="residential">
-            <label for="residential">Residential Suite</label>
+            <input class="radio-button" type="radio" id="all" name="roomType" value="all">
+            <label for="all">All Room Types</label>
+          </div>
+          <div class="radio-styling-div">
+            <input class="radio-button" type="radio" id="residentialSuite" name="roomType" value="residential suite">
+            <label for="residentialSuite">Residential Suite</label>
           </div>
           <div class="radio-styling-div">
             <input class="radio-button" type="radio" id="suite" name="roomType" value="suite">
             <label for="suite">Suite</label>
           </div>
           <div class="radio-styling-div">
-            <input class="radio-button" type="radio" id="single" name="roomType" value="single">
-            <label for="single">Single Room</label>
+            <input class="radio-button" type="radio" id="singleRoom" name="roomType" value="single room">
+            <label for="singleRoom">Single Room</label>
           </div>
           <div class="radio-styling-div">
-            <input class="radio-button" type="radio" id="junior" name="roomType" value="junior">
-            <label for="junior">Junior Suite</label>
+            <input class="radio-button" type="radio" id="juniorSuite" name="roomType" value="junior suite">
+            <label for="juniorSuite">Junior Suite</label>
           </div>
         </div>
+        <div class="search-for-room-button-div">
+          <button class="check-availability-button disable-button" id="checkAvailibilityButton">Check Availability</button>
+        </div>
       </section>
-      <div class="available-rooms-div">
+      <div class="available-rooms-div" id="availableRoomsDiv">
           <!-- AVAILABLE ROOMS GO HERE!  -->
-        <article class="available-room-card">
-          <p>$160</P>
-          <p>Suite</P>
-          <p>1 queen bed</P>
-        </article>
-        <article class="available-room-card">
-          <p>$200</P>
-          <p>Single</P>
-          <p>1 full bed</P>
-        </article>
       </div>
-      <button class="book-available-room-button">Book Room</button>
+      <button class="book-available-room-button" id="bookAvailableRoomButton">Book Room</button>
     </section>
     <section class="right-user-booking-log-section">
       <div class="customer-bookings-div">
         <h2 class="customer-bookings-header" id="customerBookingsHeader"></h2>
         <h3 class="customer-bookings-details-msg">Booking Details:</h3>
-        <div class="display-customer-bookings-div" id="displayCustomerBookings">
+        <div class="display-customer-bookings-div" id="displayCustomerBookings" tabindex=0>
           <!-- DOM display of customer bookings here!! -->
         </div>
       </div>
     </section>
   </section>
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   <script src="bundle.js"></script>
 </body>
 </html>

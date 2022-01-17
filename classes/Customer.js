@@ -8,7 +8,6 @@ class Customer {
 getFirstName() {
   const firstName = this.name.split(' ');
   this.firstName = firstName[0];
-  console.log('firstName in getFirstName----', this.firstName)
   }
 }
 

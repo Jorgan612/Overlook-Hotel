@@ -54,5 +54,11 @@ describe('Hotel', function() {
     expect(hotel.totalBookingCost).to.equal(968.52);
   });
 
+  it('It should check room availability', function () {
+    hotel.checkRoomAvailability('2022/01/15', 'suite');
+    // console.log('available rooms -----', hotel.unavailableRooms)
+    expect(hotel.unavailableRooms).to.equal()
+  })
+
 
 });
