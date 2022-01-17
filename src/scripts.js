@@ -34,10 +34,8 @@ const fetchAll = () => {
     // document.getElementById('date').setAttribute('min', today);
     // document.getElementById('date').setAttribute('value', today);
     let selectedCalendarInputDate = dayjs().format('YYYY/MM/DD');
-    console.log('on page load date value?---', selectedCalendarInputDate)
     const allroomTypesRadioButton = document.getElementById('all');
     allroomTypesRadioButton.checked = true;
-
   })
 }
 
@@ -50,50 +48,27 @@ const getCustomerInformation = () => {
   domUpdates.displayPersonalizedGreeting(customer);
 }
 
-
-const findAvailableBookings = () => {
-  // event.preventDefault();
+const findAvailableRooms = () => {
   let calendarInputDate = document.getElementById('date');
   let selectedCalendarInputDate = dayjs(calendarInputDate.value).format('YYYY/MM/DD');
   let roomTypeInput = document.querySelector('input[name="roomType"]:checked').value;
   hotel.checkRoomAvailability(selectedCalendarInputDate, roomTypeInput);
   domUpdates.displayAvailableRooms(hotel.availableRooms);
-  console.log('selected date ---', selectedCalendarInputDate)
+
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const makeNewBooking = () => {
-  // let availableRoomRadioButton = document.getElementById('${room.number}');
   let calendarInputDate = document.getElementById('date');
   let selectedCalendarInputDate = dayjs(calendarInputDate.value).format('YYYY/MM/DD');
   let selectedRoomToBook = document.querySelector('input[name="availableRoomRadioButton"]:checked').value;
-  // hotel.findRoomBookingDetails(Number(selectedRoomToBook));
   hotel.collectBookingDetails(customer, selectedCalendarInputDate, selectedRoomToBook)
-  console.log('this.newBookingDetails -----', hotel.newBookingDetails)
-
-  console.log('currentCustomerBookings BEFORE post', hotel.currentCustomerBookings)
   addNewBooking(hotel.newBookingDetails);
-  console.log('currentCustomerBookings AFTER post', hotel.  currentCustomerBookings)
+  console.log('currentCustomerBookings AFTER post', hotel.currentCustomerBookings);
+  getCustomerInformation();
 }
-
 
 
 // Event Listeners
 bookAvailableRoomButton.addEventListener('click', makeNewBooking);
-checkAvailibilityButton.addEventListener('click', findAvailableBookings);
+checkAvailibilityButton.addEventListener('click', findAvailableRooms);
 window.addEventListener('load', fetchAll);

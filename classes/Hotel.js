@@ -70,14 +70,6 @@ calculateTotalCostOfAllCustomerBookings(customer) {
     }
     this.newBookingDetails = newBooking;
   }
-  // findRoomBookingDetails(roomNumber) {
-  //   const bookingDetails = this.bookings.find((booking) => {
-  //     return booking.roomNumber === roomNumber && booking.userID === this.customer.id;
-  //   })
-  //   // if (this.availableRooms.includes(bookingDetails)) {
-  //     this.specificBookingDetails = bookingDetails;
-  //   // }
-  // }
 };
 
 export default Hotel;

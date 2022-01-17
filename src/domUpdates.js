@@ -12,7 +12,7 @@ displayCustomerInformation(bookingInfo) {
       <p class="card-details">Date - ${booking.date}</p>
       <p class="card-details">Room - ${booking.roomNumber}</p>
     </article>
-    `
+    `;
     customerBookingsContainer.innerHTML += bookingCard;
     })
   },
@@ -29,19 +29,13 @@ displayAvailableRooms(availableRooms) {
       <input class="available-room-radio-input" type="radio" id="${room.number}" name="availableRoomRadioButton" value="${room.number}">
       <label class="available-room-radio-input" for="${room.number}">$${room.costPerNight}  ┃  ${room.roomType}  ┃  ${room.numBeds} ${room.bedSize} bed ┃ room ${room.number}</label>
     </article>
-    `
-    // firstAvailableRoomRadioButton.checked = true;
-    // <article class="available-room-card">
-    //   <p>$ ${room.costPerNight}</P>
-    //   <p>${room.roomType}</P>
-    //   <p>${room.numBeds} ${room.bedSize} bed</P>
-    // </article>
-    availableRoomsDiv.innerHTML += availableRoomCard
+    `;
+    availableRoomsDiv.innerHTML += availableRoomCard;
   })
   if (availableRooms.length === 0) {
-    let noAvailabilityMsg = `<p class="no-availability-msg-p-tag">We apologize for the inconvience but there are no available rooms to book for the selected date and/or room type. Please refine your search and try again.</p>`
+    let noAvailabilityMsg = `<p class="no-availability-msg-p-tag">We apologize for the inconvience but there are no available rooms to book for the selected date and/or room type. Please refine your search and try again.</p>`;
     availableRoomsDiv.innerHTML = noAvailabilityMsg;
-  }
+    }
   }
 }
 

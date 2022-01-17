@@ -132,7 +132,7 @@ button {
 }
 
 .select-date-section {
-  @include flexbox(column, space-around, center);
+  @include flexbox(column, center, center);
   @include heightAndWidth(30%, 90%);
   @include fontSize(25px);
   margin: 10px;
@@ -171,6 +171,8 @@ button {
 .radio-button-room-type-div {
   @include flexbox(none, space-around, center);
   @include heightAndWidth(18%, 100%);
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .radio-button {
@@ -179,8 +181,9 @@ button {
 
 .search-for-room-button-div {
   @include flexbox(none, center, center);
-  @include heightAndWidth(20%, 100%);
+  @include heightAndWidth(25%, 100%);
   @include fontSize(30px);
+  margin-top: 10px;
 }
 
 .check-availability-button {
@@ -213,7 +216,7 @@ button {
 }
 
 .book-available-room-button {
-  @include heightAndWidth(10%, 50%);
+  @include heightAndWidth(8%, 50%);
   @include fontSize(40px);
   margin-top: 30px;
   margin-bottom: 10px;
