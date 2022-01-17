@@ -69,7 +69,6 @@ const makeNewBooking = () => {
   let selectedRoomToBook = document.querySelector('input[name="availableRoomRadioButton"]:checked').value;
   hotel.collectBookingDetails(customer, selectedCalendarInputDate, selectedRoomToBook)
   addNewBooking(hotel.newBookingDetails);
-  console.log('currentCustomerBookings AFTER post', hotel.currentCustomerBookings);
   fetchAll();
 }
 
