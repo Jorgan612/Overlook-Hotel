@@ -4,7 +4,8 @@ import dayjs from 'dayjs';
 
 import { fetchRooms,
   fetchBookings,
-  fetchCustomers
+  fetchCustomers,
+  addNewBooking
 } from './apicalls';
 
 import Customer from '../classes/Customer.js';
@@ -60,12 +61,37 @@ const findAvailableBookings = () => {
   console.log('selected date ---', selectedCalendarInputDate)
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const makeNewBooking = () => {
   // let availableRoomRadioButton = document.getElementById('${room.number}');
+  let calendarInputDate = document.getElementById('date');
+  let selectedCalendarInputDate = dayjs(calendarInputDate.value).format('YYYY/MM/DD');
   let selectedRoomToBook = document.querySelector('input[name="availableRoomRadioButton"]:checked').value;
-  hotel.findRoomBookingDetails(Number(selectedRoomToBook));
-   console.log('hotel.specificRoomDetails----number', hotel.specificRoomDetails)
+  // hotel.findRoomBookingDetails(Number(selectedRoomToBook));
+  hotel.collectBookingDetails(customer, selectedCalendarInputDate, selectedRoomToBook)
+  console.log('this.newBookingDetails -----', hotel.newBookingDetails)
+
+  console.log('currentCustomerBookings BEFORE post', hotel.currentCustomerBookings)
+  addNewBooking(hotel.newBookingDetails);
+  console.log('currentCustomerBookings AFTER post', hotel.  currentCustomerBookings)
 }
+
+
 
 // Event Listeners
 bookAvailableRoomButton.addEventListener('click', makeNewBooking);

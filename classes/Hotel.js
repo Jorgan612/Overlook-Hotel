@@ -9,7 +9,7 @@ class Hotel {
     this.totalBookingCost;
     this.availableRooms;
     this.unavailableRooms;
-    this.specificBookingDetails;
+    this.newBookingDetails;
   }
 
 getCurrentCustomerBookings() {
@@ -61,12 +61,23 @@ calculateTotalCostOfAllCustomerBookings(customer) {
       }
     })
   }
-  findRoomBookingDetails(roomNumber) {
-    const bookingDetails = this.bookings.find((booking) => {
-      return booking.roomNumber === roomNumber;
-    })
-    this.specificBookingDetails = bookingDetails;
+
+  collectBookingDetails(userID, date, roomNumber) {
+    const newBooking = {
+      userID: userID.id,
+      date: date,
+      roomNumber: Number(roomNumber)
+    }
+    this.newBookingDetails = newBooking;
   }
+  // findRoomBookingDetails(roomNumber) {
+  //   const bookingDetails = this.bookings.find((booking) => {
+  //     return booking.roomNumber === roomNumber && booking.userID === this.customer.id;
+  //   })
+  //   // if (this.availableRooms.includes(bookingDetails)) {
+  //     this.specificBookingDetails = bookingDetails;
+  //   // }
+  // }
 };
 
 export default Hotel;
