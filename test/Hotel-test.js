@@ -58,12 +58,12 @@ describe('Hotel', function() {
     hotel.checkRoomAvailability('2022/01/15', 'suite');
     expect(hotel.availableRooms).to.be.an('array');
     expect(hotel.availableRooms.length).to.equal(1);
-  })
+  });
 
   it('It should collect booking details', function  () {
     hotel.collectBookingDetails(1, '2022/01/15', '4');
     expect(hotel.newBookingDetails).to.be.an('object');
-    expect(hotel.newBookingDetails).to.deep.equal({userID: 1, date: '2022/01/15', roomNumber: 4})
-  })
+    expect(hotel.newBookingDetails).to.deep.equal({userID: 1, date: '2022/01/15', roomNumber: 4});
+  });
 
 });
