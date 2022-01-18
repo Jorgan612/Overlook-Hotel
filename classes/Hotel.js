@@ -64,7 +64,7 @@ calculateTotalCostOfAllCustomerBookings(customer) {
 
   collectBookingDetails(userID, date, roomNumber) {
     const newBooking = {
-      userID: userID.id,
+      userID: userID,
       date: date,
       roomNumber: Number(roomNumber)
     }

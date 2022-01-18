@@ -56,6 +56,13 @@ const bookingsData = [
     "roomNumber": 3,
     "roomServiceCharges": []
   },
+  // {
+  //   "id": "5fwrgu4i7k55h16t1",
+  //   "userID": 1,
+  //   "date": "2022/01/196",
+  //   "roomNumber": 4,
+  //   "roomServiceCharges": []
+  // }
 ];
 
 const roomsData = [
@@ -83,6 +90,14 @@ const roomsData = [
     "numBeds": 1,
     "costPerNight": 491.14
   },
+  {
+    "number": 4,
+    "roomType": "suite",
+    "bidet": false,
+    "bedSize": "king",
+    "numBeds": 1,
+    "costPerNight": 500.14
+  }
 ];
 
 export { customersData, bookingsData, roomsData };

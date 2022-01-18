@@ -70,7 +70,7 @@ const makeNewBooking = () => {
   let calendarInputDate = document.getElementById('date');
   let selectedCalendarInputDate = dayjs(calendarInputDate.value).format('YYYY/MM/DD');
   let selectedRoomToBook = document.querySelector('input[name="availableRoomRadioButton"]:checked').value;
-  hotel.collectBookingDetails(customer, selectedCalendarInputDate, selectedRoomToBook)
+  hotel.collectBookingDetails(customer.id, selectedCalendarInputDate, selectedRoomToBook)
   addNewBooking(hotel.newBookingDetails);
   console.log('NewBookingDetails ---', hotel.newBookingDetails);
   domUpdates.addHidden(bookAvailableRoomButton, availableRoomsView);
@@ -100,22 +100,11 @@ const loginUser = (event) => {
     domUpdates.removeHidden(userLoginErrorMsg)
   }
 }
-// const getRequestErrorMsg = () => {
-// domUpdates.addHidden([]
-// }
-
-// const postRequestErrorMsg = () => {
-//   // domUpdates.addHidden([]);
-//   // domUpdates.removeHidden([]);
-//   domUpdates.showPostErrorMsg();
-// }
 
 // Event Listeners
 loginButton.addEventListener('click', loginUser);
-// userNameInput.addEventListener('keydown', determineValidLoginInput);
-// userPasswordInput.addEventListener('keydown', determineValidLoginInput);
 calendarInput.addEventListener('input', determineValidCalendarInput);
 bookAvailableRoomButton.addEventListener('click', makeNewBooking);
 checkAvailibilityButton.addEventListener('click', findAvailableRooms);
-// window.addEventListener('load', fetchAll);
+
 export { hotel, getCustomerInformation, fetchAll }
