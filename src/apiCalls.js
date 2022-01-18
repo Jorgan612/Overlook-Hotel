@@ -5,28 +5,28 @@ export const fetchRooms = () => {
   return fetch("http://localhost:3001/api/v1/rooms")
     .then(response => response.json())
     .then(data => data.rooms)
-    .catch(err => console.log('Oops! Something went wrong!', err))
+    .catch(err => domUpdates.showGetErrorMsg())
 }
 
 export const fetchBookings = () => {
   return fetch("http://localhost:3001/api/v1/bookings")
     .then(response => response.json())
     .then(data => data.bookings)
-    .catch(err => console.log('Oops! Something went wrong!', err))
+    .catch(err => showGetErrorMsg())
 }
 
 export const fetchCustomers = () => {
   return fetch("http://localhost:3001/api/v1/customers")
     .then(response => response.json())
     .then(data => data.customers)
-    .catch(err => console.log('Oops! Something went wrong!', err))
+    .catch(err => showGetErrorMsg())
 }
 
 export const fetchSingleCustomers = (id) => {
   return fetch(`http://localhost:3001/api/v1/customers/${id}`)
     .then(response => response.json())
     .then(data => data)
-    .catch(err => console.log('Oops! Something went wrong!', err))
+    .catch(err => showGetErrorMsg())
 }
 
 
@@ -41,6 +41,5 @@ export const addNewBooking = (bookingInfo) => {
   .then(response => response.json())
   .then(response => hotel.bookings.push(response))
   .then(fetchAll(bookingInfo.userID))
-  console.log('post userID passed in fetchAll--', bookingInfo.userID)
   .catch(err => domUpdates.showPostErrorMsg());
 }
