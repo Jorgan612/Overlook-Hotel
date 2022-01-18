@@ -47,7 +47,6 @@ const fetchAll = (id) => {
 }
 
 const getCustomerInformation = () => {
-
   hotel.getCurrentCustomerBookings();
   hotel.calculateTotalCostOfAllCustomerBookings();
   domUpdates.displayTotalAmountSpentOnBookings(hotel.totalBookingCost);
@@ -75,6 +74,10 @@ const makeNewBooking = () => {
   addNewBooking(hotel.newBookingDetails);
   console.log('NewBookingDetails ---', hotel.newBookingDetails);
   domUpdates.addHidden(bookAvailableRoomButton, availableRoomsView);
+  console.log('calendarInput.value BEFORE reset', calendarInput.value)
+  calendarInput.value = '';
+  checkAvailibilityButton.disabled = true;
+  console.log('calendarInput.value AFTER reset', calendarInput.value)
 }
 
 const determineValidCalendarInput = () => {

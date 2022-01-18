@@ -41,5 +41,6 @@ export const addNewBooking = (bookingInfo) => {
   .then(response => response.json())
   .then(response => hotel.bookings.push(response))
   .then(fetchAll(bookingInfo.userID))
+  console.log('post userID passed in fetchAll--', bookingInfo.userID)
   .catch(err => domUpdates.showPostErrorMsg());
 }
