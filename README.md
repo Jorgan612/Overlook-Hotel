@@ -9,20 +9,20 @@ Mod2 Overlook Hotel
   - [Illustrations](#illustrations)
   - [Install + Setup](#set-up)
   - [Contributors](#contributors)
-	- [Wins](#wins)
-	- [Challenges + Improvements](#challenges-+-Improvements)
+  - [Wins](#wins)
+  - [Challenges + Improvements](#challenges-+-Improvements)
   - [Project Specs](#project-specs)
 
 ## Abstract
-	The Overlook hotel booking app allows you to log in to your profile with a username and password to see your past, current and future bookings as well as make new bookings for available rooms within the hotel.
+The Overlook hotel booking app allows you to log in to your profile with a username and password to see your past, current and future bookings as well as make new bookings for available rooms within the hotel.
 
 ## Technologies
   - Javascript
   - eslint
   - node
   - Atom
-	- WebPack
-	- API
+  - WebPack
+  - API
   - mocha/chai
   - Sass
   - Dayjs
@@ -54,7 +54,7 @@ Once a new room to book has been found, the `Book Room` button can be selected t
 
 
 ## Install + Setup
-	- clone remote repository to your machine
+  - clone remote repository to your machine
   - clone local server
   - npm install
   - npm i dayjs
@@ -64,12 +64,12 @@ Once a new room to book has been found, the `Book Room` button can be selected t
   - [Jessica Organ](https://github.com/Jorgan612)
 
 ## Wins
-	- utilizing helper functions to display information in an orderly fashion
+  - utilizing helper functions to display information in an orderly fashion
 
 
 ## Challenges + Improvements
-	- Getting the APIs to work.
-	- Improvements: Build out manager view.
+  - Getting the APIs to work.
+  - Improvements: Build out manager view.
 
 
 ## Project Specs
