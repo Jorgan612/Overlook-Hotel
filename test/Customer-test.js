@@ -37,9 +37,4 @@ describe('Customer', function() {
   it('It should be able to take in a different name', function () {
     expect(customer2.name).to.equal('Rocio Schuster');
   });
-
-  it('It should be able to get the customers first name', function () {
-    customer.getFirstName(customer);
-    expect(customer.getFirstName()).to.equal('Leatha');
-  });
 });

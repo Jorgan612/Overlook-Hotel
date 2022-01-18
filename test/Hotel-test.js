@@ -31,8 +31,8 @@ describe('Hotel', function() {
     expect(hotel.bookings).to.be.an('array');
   });
 
-  it('It should have customers', function () {
-    expect(hotel.customers).to.deep.equal({ id: 1, name: 'Leatha Ullrich' });
+  it('It should have a customer', function () {
+    expect(hotel.customer).to.deep.equal({ id: 1, name: 'Leatha Ullrich' });
   });
 
   it('It should have a current customers booking list', function () {
@@ -56,9 +56,14 @@ describe('Hotel', function() {
 
   it('It should check room availability', function () {
     hotel.checkRoomAvailability('2022/01/15', 'suite');
-    // console.log('available rooms -----', hotel.unavailableRooms)
-    expect(hotel.unavailableRooms).to.equal()
-  })
+    expect(hotel.availableRooms).to.be.an('array');
+    expect(hotel.availableRooms.length).to.equal(1);
+  });
 
+  it('It should collect booking details', function  () {
+    hotel.collectBookingDetails(1, '2022/01/15', '4');
+    expect(hotel.newBookingDetails).to.be.an('object');
+    expect(hotel.newBookingDetails).to.deep.equal({userID: 1, date: '2022/01/15', roomNumber: 4});
+  });
 
 });
