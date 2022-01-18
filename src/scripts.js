@@ -25,8 +25,7 @@ const loginButton = document.querySelector('#LoginButton');
 const loginView = document.querySelector('.main-login-section');
 const userDashboardView = document.querySelector('.user-dashboard-section');
 const userLoginErrorMsg = document.querySelector('.login-error-msg');
-const availableRoomsView = document.querySelector('.available-rooms-div')
-
+const availableRoomsView = document.querySelector('.available-rooms-div');
 
 // Global variables
 let customer;
@@ -35,6 +34,7 @@ checkAvailibilityButton.disabled = true;
 
 // functions
 const fetchAll = (id) => {
+  console.log('current customer logged in----', id)
   Promise.all([fetchRooms(), fetchBookings(), fetchCustomers(), fetchSingleCustomers(id)])
   .then(data => {
     customer = new Customer(data[3]);
@@ -74,10 +74,8 @@ const makeNewBooking = () => {
   addNewBooking(hotel.newBookingDetails);
   console.log('NewBookingDetails ---', hotel.newBookingDetails);
   domUpdates.addHidden(bookAvailableRoomButton, availableRoomsView);
-  console.log('calendarInput.value BEFORE reset', calendarInput.value)
   calendarInput.value = '';
   checkAvailibilityButton.disabled = true;
-  console.log('calendarInput.value AFTER reset', calendarInput.value)
 }
 
 const determineValidCalendarInput = () => {

@@ -47,10 +47,14 @@ displayAvailableRooms(availableRooms) {
 removeDisableOnCheckAvailabilityButton() {
     checkAvailibilityButton.classList.remove('disable-button');
   },
+  showGetErrorMsg() {
+    const mainLoginSection = document.querySelector('#mainLoginSection');
+    mainLoginSection.innerHTML = `<p>Something went wrong! Please refresh your page and try again!</p>`
+  },
 showPostErrorMsg() {
   const availableRoomsDiv = document.querySelector('#availableRoomsDiv');
-  availableRoomsDiv.innerHTML = "";
-  availableRoomsDiv.innerHTML = "Something went wrong and we were unable to book the room. Please try again.";
+  removeHidden(availableRoomsView);
+  availableRoomsDiv.innerHTML += `<p>Something went wrong and we were unable to book the room. Please try again.</p>`;
   }
 }
 
