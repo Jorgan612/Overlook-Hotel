@@ -93,7 +93,8 @@ const loginUser = (event) => {
   let userPassword = userPasswordInput.value;
   let userNameIndex8 = [userName.charAt(8)];
   let userNameIndex9 = [userName.charAt(9)];
-  let userloginID = Number(`${userNameIndex8}${userNameIndex9}`);
+  let userNameIndex10 = [userName.charAt(10)];
+  let userloginID = Number(`${userNameIndex8}${userNameIndex9}${userNameIndex10}`);
   if (userloginID > 0 && userloginID <= 50 && userPassword === 'overlook2021') {
     fetchAll(userloginID);
   } else {
