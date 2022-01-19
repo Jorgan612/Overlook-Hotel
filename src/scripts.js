@@ -6,7 +6,7 @@ import { fetchRooms,
   fetchBookings,
   fetchCustomers,
   addNewBooking,
-  fetchSingleCustomers
+  fetchSingleCustomer,
 } from './apicalls';
 
 import Customer from '../classes/Customer.js';
@@ -34,27 +34,29 @@ checkAvailibilityButton.disabled = true;
 
 // functions
 const fetchAll = (id) => {
-  console.log('current customer logged in----', id)
-  Promise.all([fetchRooms(), fetchBookings(), fetchCustomers(), fetchSingleCustomers(id)])
+  Promise.all([fetchRooms(), fetchBookings(), fetchCustomers(), fetchSingleCustomer(id)])
   .then(data => {
-    customer = new Customer(data[3]);
     hotel = new Hotel(data[0], data[1], data[3]);
-    getCustomerInformation()
+    getCustomerInformation(id, data[1])
     let selectedCalendarInputDate = dayjs().format('YYYY/MM/DD');
     const allroomTypesRadioButton = document.getElementById('all');
     allroomTypesRadioButton.checked = true;
+    domUpdates.addHidden(loginView);
+    domUpdates.removeHidden(userDashboardView);
   })
 }
 
-const getCustomerInformation = () => {
-  hotel.getCurrentCustomerBookings();
-  hotel.calculateTotalCostOfAllCustomerBookings();
-  domUpdates.displayTotalAmountSpentOnBookings(hotel.totalBookingCost);
-  domUpdates.displayCustomerInformation(hotel.currentCustomerBookings);
-  domUpdates.displayPersonalizedGreeting(customer);
-  domUpdates.addHidden(loginView);
-  domUpdates.removeHidden(userDashboardView);
-  console.log('customer-----', hotel.currentCustomerBookings)
+const getCustomerInformation = (id) => {
+  fetchSingleCustomer(id)
+  .then(data => {
+    customer = new Customer(data);
+    hotel.customer = customer;
+    hotel.getCurrentCustomerBookings();
+    hotel.calculateTotalCostOfAllCustomerBookings();
+    domUpdates.displayTotalAmountSpentOnBookings(hotel.totalBookingCost);
+    domUpdates.displayCustomerInformation(hotel.currentCustomerBookings);
+    domUpdates.displayPersonalizedGreeting(customer);
+  })
 }
 
 const findAvailableRooms = () => {
@@ -66,15 +68,16 @@ const findAvailableRooms = () => {
   domUpdates.removeHidden(bookAvailableRoomButton, availableRoomsView);
 }
 
-const makeNewBooking = () => {
+const makeNewBooking = (event) => {
+  event.preventDefault();
   let calendarInputDate = document.getElementById('date');
   let selectedCalendarInputDate = dayjs(calendarInputDate.value).format('YYYY/MM/DD');
-  let selectedRoomToBook = document.querySelector('input[name="availableRoomRadioButton"]:checked').value;
-  hotel.collectBookingDetails(customer.id, selectedCalendarInputDate, selectedRoomToBook)
-  addNewBooking(hotel.newBookingDetails);
-  console.log('NewBookingDetails ---', hotel.newBookingDetails);
-  domUpdates.addHidden(bookAvailableRoomButton, availableRoomsView);
+  let selectedRoomToBook = Number(document.querySelector('input[name="availableRoomRadioButton"]:checked').value);
   calendarInput.value = '';
+  addNewBooking(customer.id, selectedRoomToBook, selectedCalendarInputDate);
+  hotel.getCurrentCustomerBookings();
+  hotel.calculateTotalCostOfAllCustomerBookings();
+  domUpdates.addHidden(bookAvailableRoomButton, availableRoomsView);
   checkAvailibilityButton.disabled = true;
 }
 

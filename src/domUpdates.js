@@ -25,7 +25,7 @@ displayCustomerInformation(bookingInfo) {
   },
 displayPersonalizedGreeting(customer) {
   const greetingMsg = document.querySelector('#greetingMsg');
-  greetingMsg.innerText = `Welcome,  ${customer.name} .`
+  greetingMsg.innerText = `Welcome,  ${customer.name} .`;
   },
 displayAvailableRooms(availableRooms) {
   const availableRoomsDiv = document.querySelector('#availableRoomsDiv');
@@ -55,6 +55,12 @@ showPostErrorMsg() {
   const availableRoomsDiv = document.querySelector('#availableRoomsDiv');
   removeHidden(availableRoomsView);
   availableRoomsDiv.innerHTML += `<p>Something went wrong and we were unable to book the room. Please try again.</p>`;
+  },
+resetDomMsg() {
+  const customerBookingsContainer = document.querySelector('#displayCustomerBookings');
+  customerBookingsContainer.innerHTML = "";
+  customerBookingsContainer.innerHTML += `<p>Updating your hotel bookings. One moment please.</p>`
+
   }
 }
 

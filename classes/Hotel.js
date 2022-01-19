@@ -1,15 +1,15 @@
 import dayjs from 'dayjs';
 
 class Hotel {
-  constructor(roomsData, bookingsData, customersData) {
+  constructor(roomsData, bookingsData, customer) {
     this.rooms = roomsData;
     this.bookings = bookingsData;
-    this.customer = customersData;
+    // this.allCustomers = customersData;
+    this.customer = customer;
     this.currentCustomerBookings;
     this.totalBookingCost;
     this.availableRooms;
     this.unavailableRooms;
-    this.newBookingDetails;
   }
 
 getCurrentCustomerBookings() {
@@ -25,7 +25,7 @@ getCurrentCustomerBookings() {
     this.currentCustomerBookings = currentCustomerBookings;
   }
 
-calculateTotalCostOfAllCustomerBookings(customer) {
+calculateTotalCostOfAllCustomerBookings() {
   const customerTotalBookingCost = this.currentCustomerBookings.reduce((acc, booking) => {
     this.rooms.forEach((room) => {
       if (room.number === booking.roomNumber) {
@@ -60,15 +60,6 @@ calculateTotalCostOfAllCustomerBookings(customer) {
         this.availableRooms.push(room);
       }
     })
-  }
-
-  collectBookingDetails(userID, date, roomNumber) {
-    const newBooking = {
-      userID: userID,
-      date: date,
-      roomNumber: Number(roomNumber)
-    }
-    this.newBookingDetails = newBooking;
   }
 };
 
