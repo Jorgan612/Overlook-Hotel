@@ -1,11 +1,11 @@
 import dayjs from 'dayjs';
 
 class Hotel {
-  constructor(roomsData, bookingsData, customersData) {
+  constructor(roomsData, bookingsData, customer) {
     this.rooms = roomsData;
     this.bookings = bookingsData;
-    this.allCustomers = customersData;
-    this.customer;
+    // this.allCustomers = customersData;
+    this.customer = customer;
     this.currentCustomerBookings;
     this.totalBookingCost;
     this.availableRooms;
@@ -25,7 +25,7 @@ getCurrentCustomerBookings() {
     this.currentCustomerBookings = currentCustomerBookings;
   }
 
-calculateTotalCostOfAllCustomerBookings(customer) {
+calculateTotalCostOfAllCustomerBookings() {
   const customerTotalBookingCost = this.currentCustomerBookings.reduce((acc, booking) => {
     this.rooms.forEach((room) => {
       if (room.number === booking.roomNumber) {

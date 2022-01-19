@@ -34,9 +34,9 @@ checkAvailibilityButton.disabled = true;
 
 // functions
 const fetchAll = (id) => {
-  Promise.all([fetchRooms(), fetchBookings(), fetchCustomers()])
+  Promise.all([fetchRooms(), fetchBookings(), fetchCustomers(), fetchSingleCustomer(id)])
   .then(data => {
-    hotel = new Hotel(data[0], data[1], data[2]);
+    hotel = new Hotel(data[0], data[1], data[3]);
     getCustomerInformation(id, data[1])
     let selectedCalendarInputDate = dayjs().format('YYYY/MM/DD');
     const allroomTypesRadioButton = document.getElementById('all');
