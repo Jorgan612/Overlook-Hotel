@@ -1,4 +1,4 @@
-import { hotel, getCustomerInformation, fetchAll } from './scripts';
+import { hotel, getCustomerInformation, fetchAll} from './scripts';
 import domUpdates from './domUpdates.js';
 
 export const fetchRooms = () => {
@@ -22,7 +22,7 @@ export const fetchCustomers = () => {
     .catch(err => showGetErrorMsg())
 }
 
-export const fetchSingleCustomers = (id) => {
+export const fetchSingleCustomer = (id) => {
   return fetch(`http://localhost:3001/api/v1/customers/${id}`)
     .then(response => response.json())
     .then(data => data)
@@ -30,16 +30,16 @@ export const fetchSingleCustomers = (id) => {
 }
 
 
-export const addNewBooking = (bookingInfo) => {
+export const addNewBooking = (customerID, room, date) => {
   return fetch('http://localhost:3001/api/v1/bookings', {
     method: 'POST',
-    body: JSON.stringify({userID: bookingInfo.userID, date: bookingInfo.date, roomNumber: bookingInfo.roomNumber}),
+    body: JSON.stringify({userID: customerID, date: date, roomNumber: room}),
     headers: {
       'Content-type': 'application/json',
     }
   })
   .then(response => response.json())
   .then(response => hotel.bookings.push(response))
-  .then(fetchAll(bookingInfo.userID))
+  .then(fetchAll(customerID))
   .catch(err => domUpdates.showPostErrorMsg());
 }

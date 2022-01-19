@@ -4,12 +4,12 @@ class Hotel {
   constructor(roomsData, bookingsData, customersData) {
     this.rooms = roomsData;
     this.bookings = bookingsData;
-    this.customer = customersData;
+    this.allCustomers = customersData;
+    this.customer;
     this.currentCustomerBookings;
     this.totalBookingCost;
     this.availableRooms;
     this.unavailableRooms;
-    this.newBookingDetails;
   }
 
 getCurrentCustomerBookings() {
@@ -60,15 +60,6 @@ calculateTotalCostOfAllCustomerBookings(customer) {
         this.availableRooms.push(room);
       }
     })
-  }
-
-  collectBookingDetails(userID, date, roomNumber) {
-    const newBooking = {
-      userID: userID,
-      date: date,
-      roomNumber: Number(roomNumber)
-    }
-    this.newBookingDetails = newBooking;
   }
 };
 
